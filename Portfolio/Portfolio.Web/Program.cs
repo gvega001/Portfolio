@@ -3,7 +3,14 @@ using Portfolio.Web.Components;
 using Portfolio.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
+string? openAiKey = configuration["OpenAIKey"];
+
+if (string.IsNullOrEmpty(openAiKey))
+{
+    throw new InvalidOperationException("OpenAIKey is not configured.");
+}
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
@@ -37,5 +44,6 @@ app.MapRazorComponents<App>()
     .AddAdditionalAssemblies(
         typeof(Portfolio.Shared._Imports).Assembly,
         typeof(Portfolio.Web.Client._Imports).Assembly);
+
 
 app.Run();
