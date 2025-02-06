@@ -1,0 +1,42 @@
+@page "/aichat"
+
+<PageTitle>AI Chat</PageTitle>
+
+<h1>AI Chat</h1>
+<div>
+    <input @bind="UserPrompt" placeholder="Ask the AI..." />
+    <button @onclick="SendChat">Send</button>
+</div>
+
+@if (!string.IsNullOrEmpty(AIResponse))
+{
+    <p><strong>AI says:</strong> @AIResponse</p>
+}
+
+@code {
+    private string UserPrompt = string.Empty;
+    private string AIResponse;
+
+    private async Task SendChat()
+    {
+        try
+        {
+            // Adjust the baseUrl if needed
+            var baseUrl = "https://localhost:5001";
+            var url = $"{baseUrl}/api/ai/chat?prompt={Uri.EscapeDataString(UserPrompt)}";
+
+            using var client = new HttpClient();
+            var result = await client.GetFromJsonAsync<AIResult>(url);
+            AIResponse = result?.Response;
+        }
+        catch (Exception ex)
+        {
+            AIResponse = $"Error: {ex.Message}";
+        }
+    }
+
+    private class AIResult
+    {
+        public string? Response { get; set; }
+    }
+}
