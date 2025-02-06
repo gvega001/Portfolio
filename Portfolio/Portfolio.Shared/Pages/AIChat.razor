@@ -15,14 +15,15 @@
 
 @code {
     private string UserPrompt = string.Empty;
-    private string AIResponse;
+    private const string V = "https://localhost:5001";
+    private string? AIResponse;
 
     private async Task SendChat()
     {
         try
         {
             // Adjust the baseUrl if needed
-            var baseUrl = "https://localhost:5001";
+            var baseUrl = V;
             var url = $"{baseUrl}/api/ai/chat?prompt={Uri.EscapeDataString(UserPrompt)}";
 
             using var client = new HttpClient();

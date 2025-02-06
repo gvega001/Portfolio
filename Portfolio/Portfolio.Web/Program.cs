@@ -11,6 +11,21 @@ if (string.IsNullOrEmpty(openAiKey))
 {
     throw new InvalidOperationException("OpenAIKey is not configured.");
 }
+
+// Add CORS services
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+// Register services, including controllers for API endpoints.
+builder.Services.AddControllers();  // <-- Required for API controllers
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
@@ -18,6 +33,9 @@ builder.Services.AddRazorComponents()
 
 // Add device-specific services used by the Portfolio.Shared project
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
+
+// Register the AI service
+builder.Services.AddSingleton<AIService>();
 
 var app = builder.Build();
 
@@ -33,10 +51,14 @@ else
     app.UseHsts();
 }
 
+app.UseCors("AllowAll");
+
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+
+app.MapControllers();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()

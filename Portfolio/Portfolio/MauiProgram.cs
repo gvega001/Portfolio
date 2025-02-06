@@ -25,7 +25,7 @@ namespace Portfolio
             builder.Services.AddBlazorWebViewDeveloperTools();
             builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddSingleton<AIService>();
             return builder.Build();
         }
     }

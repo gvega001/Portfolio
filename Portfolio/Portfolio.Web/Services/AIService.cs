@@ -17,7 +17,7 @@ namespace Portfolio.Web.Services
             }
 
             var client = new OpenAIClient(apiKey);
-            _chatClient = client.GetChatClient("gpt-4");
+            _chatClient = client.GetChatClient("gpt-4o-mini");
         }
 
         public async Task<string?> GetAIResponse(string prompt)
