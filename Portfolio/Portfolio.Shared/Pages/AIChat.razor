@@ -2,29 +2,56 @@
 
 <PageTitle>AI Chat</PageTitle>
 
-<h1>AI Chat</h1>
-<div>
-    <input @bind="UserPrompt" placeholder="Ask the AI..." />
-    <button @onclick="SendChat">Send</button>
-</div>
+<div class="container py-5">
+    <h1 class="mb-4 text-center">AI Chat</h1>
+    <p class="text-center text-muted">
+        Interact with my custom GPT-based chatbot—enter a prompt and see the AI respond!
+    </p>
 
-@if (!string.IsNullOrEmpty(AIResponse))
-{
-    <p><strong>AI says:</strong> @AIResponse</p>
-}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Card for Prompt Input -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Ask the AI</h5>
+                    <p class="card-text">Type your question or command below, then click Send.</p>
+
+                    <div class="mb-3">
+                        <!-- Use a textarea if you want multiline input -->
+                        <textarea class="form-control" @bind="UserPrompt" rows="3"
+                                  placeholder="Type your question here..."></textarea>
+                    </div>
+
+                    <button class="btn btn-primary" @onclick="SendChat">
+                        <i class="bi bi-chat-dots"></i> Send
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card for AI Response -->
+            @if (!string.IsNullOrEmpty(AIResponse))
+            {
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">AI says:</h5>
+                        <p>@AIResponse</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
 
 @code {
     private string UserPrompt = string.Empty;
-    private const string V = "https://localhost:5001";
+    private const string BaseUrl = "https://localhost:5001"; // change if needed
     private string? AIResponse;
 
     private async Task SendChat()
     {
         try
         {
-            // Adjust the baseUrl if needed
-            var baseUrl = V;
-            var url = $"{baseUrl}/api/ai/chat?prompt={Uri.EscapeDataString(UserPrompt)}";
+            var url = $"{BaseUrl}/api/ai/chat?prompt={Uri.EscapeDataString(UserPrompt)}";
 
             using var client = new HttpClient();
             var result = await client.GetFromJsonAsync<AIResult>(url);

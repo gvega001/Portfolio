@@ -4,9 +4,69 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<!-- Hero Section -->
+<div class="bg-light text-center p-5 mb-4 rounded-3">
+    <h1 class="display-4">Welcome to My Portfolio!</h1>
+    <p class="lead">
+        This app runs on
+        <strong>@factor</strong>
+        using
+        <strong>@platform</strong>.
+    </p>
+    <hr class="my-4" />
+    <p>
+        Explore AI projects, cross-platform .NET demos, and more.
+        Let’s build something amazing together!
+    </p>
+    <a class="btn btn-primary btn-lg" href="/projects">Check Out My Projects</a>
+</div>
 
-Welcome to your new app running on <em>@factor</em> using <em>@platform</em>.
+<!-- Features Section -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Feature 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">AI Chat Demo</h5>
+                    <p class="card-text">
+                        Interact with my custom GPT-based chatbot to see
+                        how easily you can integrate AI into .NET solutions.
+                    </p>
+                    <a href="/aichat" class="btn btn-outline-primary">Try the Chat</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Cross-Platform MAUI</h5>
+                    <p class="card-text">
+                        Explore how I use .NET MAUI to build apps for multiple
+                        platforms with a single codebase.
+                    </p>
+                    <a href="/about" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Portfolio Highlights</h5>
+                    <p class="card-text">
+                        Dive into my professional background, showcasing
+                        expertise in development, education, and tech innovation.
+                    </p>
+                    <a href="/about" class="btn btn-outline-primary">About Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @code {
     private string factor => FormFactor.GetFormFactor();
