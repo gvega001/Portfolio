@@ -2,26 +2,31 @@
 
 <PageTitle>AI Chat</PageTitle>
 
-<div class="container py-5">
-    <h1 class="mb-4 text-center">AI Chat</h1>
-    <p class="text-center text-muted">
-        Interact with my custom GPT-based chatbot—enter a prompt and see the AI respond!
-    </p>
+<!-- Hero Section -->
+<div class="hero-section d-flex align-items-center mb-5"
+     style="min-height: 40vh; background: linear-gradient(135deg, #6366F1, #A78BFA);">
+    <div class="container text-white text-center">
+        <h1 class="display-3 fw-bold">AI Chat</h1>
+        <p class="lead mt-3">
+            Interact with my custom GPT-based chatbot—enter a prompt and see the AI respond!
+        </p>
+    </div>
+</div>
 
+<div class="container mb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <!-- Card for Prompt Input -->
-            <div class="card shadow-sm mb-4">
+            <div class="card border border-2 border-secondary mb-4">
                 <div class="card-body">
-                    <h5 class="card-title">Ask the AI</h5>
-                    <p class="card-text">Type your question or command below, then click Send.</p>
-
+                    <h4 class="card-title fw-bold">Ask the AI</h4>
+                    <p class="card-text">
+                        Type your question or command below, then click Send.
+                    </p>
                     <div class="mb-3">
-                        <!-- Use a textarea if you want multiline input -->
                         <textarea class="form-control" @bind="UserPrompt" rows="3"
                                   placeholder="Type your question here..."></textarea>
                     </div>
-
                     <button class="btn btn-primary" @onclick="SendChat">
                         <i class="bi bi-chat-dots"></i> Send
                     </button>
@@ -31,9 +36,9 @@
             <!-- Card for AI Response -->
             @if (!string.IsNullOrEmpty(AIResponse))
             {
-                <div class="card shadow-sm">
+                <div class="card border border-2 border-secondary">
                     <div class="card-body">
-                        <h5 class="card-title">AI says:</h5>
+                        <h4 class="card-title fw-bold">AI says:</h4>
                         <p>@AIResponse</p>
                     </div>
                 </div>
