@@ -2,91 +2,157 @@
 
 <PageTitle>About</PageTitle>
 
-<h1>About Me</h1>
+<!-- Hero Section -->
+<div class="hero-section d-flex align-items-center mb-5"
+     style="min-height: 40vh; background: linear-gradient(135deg, #6366F1, #A78BFA);">
+    <div class="container text-white text-center">
+        <h1 class="display-3 fw-bold">About Me</h1>
+        <p class="lead mt-3">
+            A glimpse into my background, skills, and passion for technology.
+        </p>
+    </div>
+</div>
 
-<p>
-    Hello! I’m <strong>Gabriel Vega</strong>, a dedicated <strong>software developer</strong>
-    and technology enthusiast with over <strong>20 years of professional experience</strong>—much
-    of it spent at the intersection of <strong>education</strong> and <strong>technology</strong>.
-    While I’ve taught programming and math in classroom settings, my true passion lies in
-    <strong>innovating</strong>, <strong>building</strong>, and <strong>delivering</strong>
-    robust software solutions.
-</p>
+<!-- Outlined Cards Section -->
+<div class="container my-5">
+    <!-- row-cols-1 row-cols-md-2 makes 1 column on small screens, 2 columns on medium+ -->
+    <!-- g-4 adds a gap of 1.5rem between columns and rows -->
+    <div class="row row-cols-1 row-cols-md-2 g-4">
 
-<h2>My Technical Toolkit</h2>
-<ul>
-    <li>
-        <strong>Programming Languages:</strong> Proficient in
-        <em>Java</em>, <em>C</em>, <em>C#</em>, <em>C++</em>, and <em>Python</em>
-    </li>
-    <li>
-        <strong>Web &amp; Cloud:</strong> Skilled in <em>HTML</em>, <em>CSS</em>,
-        <em>JavaScript</em>, <em>SQL / Azure SQL</em>, and Docker/Kubernetes for containerization
-    </li>
-    <li>
-        <strong>Frameworks &amp; Tools:</strong> Experienced with
-        <em>Visual Studio</em>, GitHub, Postman, Salesforce, and Doxygen
-    </li>
-    <li>
-        <strong>Cross-Platform Dev:</strong> .NET MAUI, XAML, plus
-        <em>Linux/Windows</em> environments
-    </li>
-    <li>
-        <strong>Robotics &amp; Hardware:</strong> Arduino, VEX, RoboBlocky, Linkbot
-    </li>
-</ul>
+        <!-- 1. About Me -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary">
+                <div class="card-body">
+                    <h2 class="card-title fw-bold">About Me</h2>
+                    <p>
+                        Hello! I’m <strong>Gabriel Vega</strong>, a dedicated
+                        <strong>software developer</strong> and technology enthusiast
+                        with over <strong>20 years of professional experience</strong>—much
+                        of it spent at the intersection of <strong>education</strong> and
+                        <strong>technology</strong>. While I’ve taught programming and math
+                        in classroom settings, my true passion lies in
+                        <strong>innovating</strong>, <strong>building</strong>, and
+                        <strong>delivering</strong> robust software solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-<h2>Bridging Education &amp; Tech</h2>
-<p>
-    My background in <strong>teaching</strong> not only honed my communication and
-    mentorship skills but also gave me a unique viewpoint for designing software—
-    particularly solutions that improve user learning and engagement. Some highlights include:
-</p>
-<ul>
-    <li>
-        Developing and integrating <em>C-based</em> and <em>C#</em> applications for
-        robotics programs
-    </li>
-    <li>
-        Introducing <em>Docker</em> for streamlined deployments and environment consistency
-    </li>
-    <li>
-        Mentoring teams on <em>agile methodologies</em>, test-driven development,
-        and continuous integration
-    </li>
-</ul>
+        <!-- 2. My Technical Toolkit -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary">
+                <div class="card-body">
+                    <h2 class="card-title fw-bold">My Technical Toolkit</h2>
+                    <ul>
+                        <li>
+                            <strong>Programming Languages:</strong> Proficient in
+                            <em>Java</em>, <em>C</em>, <em>C#</em>, <em>C++</em>, and <em>Python</em>
+                        </li>
+                        <li>
+                            <strong>Web &amp; Cloud:</strong> Skilled in <em>HTML</em>,
+                            <em>CSS</em>, <em>JavaScript</em>, <em>SQL / Azure SQL</em>,
+                            and Docker/Kubernetes for containerization
+                        </li>
+                        <li>
+                            <strong>Frameworks &amp; Tools:</strong> Experienced with
+                            <em>Visual Studio</em>, GitHub, Postman, Salesforce, and Doxygen
+                        </li>
+                        <li>
+                            <strong>Cross-Platform Dev:</strong> .NET MAUI, XAML, plus
+                            <em>Linux/Windows</em> environments
+                        </li>
+                        <li>
+                            <strong>Robotics &amp; Hardware:</strong> Arduino, VEX,
+                            RoboBlocky, Linkbot
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-<h2>Why I’m Excited About Tech</h2>
-<p>
-    Having led interdisciplinary STEM/robotics classes, I’ve witnessed firsthand how
-    <strong>hands-on tech</strong> can empower people and organizations. I’m now focusing on
-    <strong>full-time software development</strong>, eager to:
-</p>
-<ul>
-    <li>Build scalable <em>.NET</em> or <em>Java</em> applications</li>
-    <li>Explore <em>AI</em> and data-driven projects</li>
-    <li>Contribute to platforms that reshape how people interact with technology</li>
-</ul>
+        <!-- 3. Bridging Education & Tech -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary">
+                <div class="card-body">
+                    <h2 class="card-title fw-bold">Bridging Education &amp; Tech</h2>
+                    <p>
+                        My background in <strong>teaching</strong> not only honed my
+                        communication and mentorship skills but also gave me a unique
+                        viewpoint for designing software—particularly solutions that
+                        improve user learning and engagement. Some highlights include:
+                    </p>
+                    <ul>
+                        <li>
+                            Developing and integrating <em>C-based</em> and <em>C#</em>
+                            applications for robotics programs
+                        </li>
+                        <li>
+                            Introducing <em>Docker</em> for streamlined deployments
+                            and environment consistency
+                        </li>
+                        <li>
+                            Mentoring teams on <em>agile methodologies</em>,
+                            test-driven development, and continuous integration
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-<h2>Beyond the Code</h2>
-<p>
-    When I’m not coding or prototyping, you might find me:
-</p>
-<ul>
-    <li>Experimenting with new <em>IoT</em> or robotics projects</li>
-    <li>Reading up on the latest <em>DevOps</em> practices</li>
-    <li>
-        Sharing my knowledge with others—both students and fellow developers
-    </li>
-</ul>
+        <!-- 4. Why I’m Excited About Tech -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary">
+                <div class="card-body">
+                    <h2 class="card-title fw-bold">Why I’m Excited About Tech</h2>
+                    <p>
+                        Having led interdisciplinary STEM/robotics classes, I’ve
+                        witnessed firsthand how <strong>hands-on tech</strong> can
+                        empower people and organizations. I’m now focusing on
+                        <strong>full-time software development</strong>, eager to:
+                    </p>
+                    <ul>
+                        <li>Build scalable <em>.NET</em> or <em>Java</em> applications</li>
+                        <li>Explore <em>AI</em> and data-driven projects</li>
+                        <li>Contribute to platforms that reshape how people interact with technology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-<hr />
+        <!-- 5. Beyond the Code -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary">
+                <div class="card-body">
+                    <h2 class="card-title fw-bold">Beyond the Code</h2>
+                    <p>
+                        When I’m not coding or prototyping, you might find me:
+                    </p>
+                    <ul>
+                        <li>Experimenting with new <em>IoT</em> or robotics projects</li>
+                        <li>Reading up on the latest <em>DevOps</em> practices</li>
+                        <li>Sharing my knowledge with others—both students and fellow developers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-<p>
-    <strong>In a nutshell</strong>: I’m an adaptable developer who merges a strong
-    <em>technical foundation</em> with a proven ability to <em>communicate</em>,
-    <em>mentor</em>, and <em>drive projects</em> forward. With a passion for
-    <em>innovation</em> and <em>collaboration</em>, I’m looking to bring my expertise
-    in <strong>software development</strong>, <strong>cloud technologies</strong>, and
-    <strong>educational insight</strong> to organizations shaping tomorrow’s tech landscape.
-</p>
+        <!-- 6. In a Nutshell -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary">
+                <div class="card-body">
+                    <p>
+                        <strong>In a nutshell</strong>: I’m an adaptable developer who merges
+                        a strong <em>technical foundation</em> with a proven ability to
+                        <em>communicate</em>, <em>mentor</em>, and <em>drive projects</em>
+                        forward. With a passion for <em>innovation</em> and
+                        <em>collaboration</em>, I’m looking to bring my expertise in
+                        <strong>software development</strong>, <strong>cloud technologies</strong>,
+                        and <strong>educational insight</strong> to organizations shaping
+                        tomorrow’s tech landscape.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
