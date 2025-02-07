@@ -4,31 +4,31 @@
 
 <PageTitle>Home</PageTitle>
 
-<!-- Hero Section -->
-<div class="bg-light text-center p-5 mb-4 rounded-3">
-    <h1 class="display-4">Welcome to My Portfolio!</h1>
-    <p class="lead">
-        This app runs on
-        <strong>@factor</strong>
-        using
-        <strong>@platform</strong>.
-    </p>
-    <hr class="my-4" />
-    <p>
-        Explore AI projects, cross-platform .NET demos, and more.
-        Let’s build something amazing together!
-    </p>
-    <a class="btn btn-primary btn-lg" href="/projects">Check Out My Projects</a>
+<!-- Hero Section (Optional) -->
+<div class="hero-section d-flex align-items-center mb-5"
+     style="min-height: 60vh; background: linear-gradient(135deg, #6366F1, #A78BFA);">
+    <div class="container text-white text-center">
+        <h1 class="display-3 fw-bold">Welcome to My Portfolio!</h1>
+        <p class="lead mt-3">
+            Building modern solutions on
+            <strong>@FormFactor.GetFormFactor()</strong> with
+            <strong>@FormFactor.GetPlatform()</strong>.
+        </p>
+        <a class="btn btn-light btn-lg mt-4 shadow-sm" href="/projects">Check Out My Projects</a>
+    </div>
 </div>
 
-<!-- Features Section -->
-<div class="container mt-5">
-    <div class="row">
-        <!-- Feature 1 -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
+<!-- Feature / Cards Section -->
+<div class="container mb-5">
+    <!-- row-cols-1 row-cols-md-3 ensures a single column on small screens and three columns on medium+ -->
+    <!-- g-4 adds a gap (spacing) between cards -->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <!-- Card 1 -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary">
                 <div class="card-body">
-                    <h5 class="card-title">AI Chat Demo</h5>
+                    <h5 class="card-title fw-bold">AI Chat Demo</h5>
                     <p class="card-text">
                         Interact with my custom GPT-based chatbot to see
                         how easily you can integrate AI into .NET solutions.
@@ -38,11 +38,11 @@
             </div>
         </div>
 
-        <!-- Feature 2 -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
+        <!-- Card 2 -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary">
                 <div class="card-body">
-                    <h5 class="card-title">Cross-Platform MAUI</h5>
+                    <h5 class="card-title fw-bold">Cross-Platform MAUI</h5>
                     <p class="card-text">
                         Explore how I use .NET MAUI to build apps for multiple
                         platforms with a single codebase.
@@ -52,11 +52,11 @@
             </div>
         </div>
 
-        <!-- Feature 3 -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
+        <!-- Card 3 -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary">
                 <div class="card-body">
-                    <h5 class="card-title">Portfolio Highlights</h5>
+                    <h5 class="card-title fw-bold">Portfolio Highlights</h5>
                     <p class="card-text">
                         Dive into my professional background, showcasing
                         expertise in development, education, and tech innovation.
@@ -65,6 +65,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
