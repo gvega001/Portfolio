@@ -5,7 +5,7 @@ WORKDIR /app
 # Copy the solution file
 COPY ["Portfolio.sln", "./"]
 
-# Copy the project file correctly
+# Copy the correct project file location
 COPY ["Portfolio/Portfolio/Portfolio.Web/Portfolio.Web.csproj", "Portfolio/Portfolio/Portfolio.Web/"]
 
 # Restore dependencies
