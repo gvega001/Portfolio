@@ -6,14 +6,14 @@ WORKDIR /app
 COPY ["Portfolio.sln", "./"]
 
 # Copy the correct project file location
-COPY ["Portfolio/Portfolio.csproj"]
+COPY ["Portfolio/Portfolio.csproj", "Portfolio/"]
 
 # Restore dependencies
 RUN dotnet restore "Portfolio/Portfolio.csproj"
 
 # Copy everything and build the project
 COPY . .
-WORKDIR /app/Portfolio/Portfolio/Portfolio.Web
+WORKDIR /app/Portfolio/Portfolio.Web
 RUN dotnet publish -c Release -o /app/publish --self-contained false
 
 # Use ASP.NET runtime for running the app
