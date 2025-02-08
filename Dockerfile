@@ -6,14 +6,14 @@ WORKDIR /app
 COPY ["Portfolio.sln", "./"]
 
 # Copy the correct project file location
-COPY ["Portfolio/Portfolio/Portfolio/Portfolio.csproj", "Portfolio/Portfolio/Portfolio"]
+COPY ["Portfolio/Portfolio.csproj", "Portfolio/"]
 
 # Restore dependencies
-RUN dotnet restore "Portfolio/Portfolio/Portfolio/Portfolio.csproj"
+RUN dotnet restore "Portfolio/Portfolio.csproj"
 
 # Copy everything and build the project
 COPY . .
-WORKDIR /app/Portfolio/Portfolio.Web
+WORKDIR /app/Portfolio
 RUN dotnet publish -c Release -o /app/publish --self-contained false
 
 # Use ASP.NET runtime for running the app
@@ -23,4 +23,4 @@ COPY --from=build /app/publish .
 
 # Expose the app on port 8080
 EXPOSE 8080
-ENTRYPOINT ["dotnet", "Portfolio.Web.dll"]
+ENTRYPOINT ["dotnet", "Portfolio.dll"]
