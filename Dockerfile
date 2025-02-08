@@ -6,10 +6,10 @@ WORKDIR /app
 COPY ["Portfolio.sln", "./"]
 
 # Copy the correct project file location
-COPY ["Portfolio/Portfolio.Web/Portfolio.Web.csproj", "Portfolio/Portfolio/Portfolio.Web/"]
+COPY ["Portfolio.Web/Portfolio.Web.csproj", "Portfolio/Portfolio/Portfolio.Web/"]
 
 # Restore dependencies
-RUN dotnet restore "Portfolio/Portfolio.Web/Portfolio.Web.csproj"
+RUN dotnet restore "Portfolio.Web/Portfolio.Web.csproj"
 
 # Copy everything and build the project
 COPY . .
