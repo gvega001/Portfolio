@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/" 
 @using Portfolio.Shared.Services
 @inject IFormFactor FormFactor
 
@@ -14,7 +14,12 @@
             <strong>@FormFactor.GetFormFactor()</strong> on
             <strong>@FormFactor.GetPlatform()</strong> platforms.
         </p>
-        <a class="btn btn-light btn-lg mt-4 shadow-sm" href="/projects">Check Out My Projects</a>
+        <a class="btn btn-light btn-lg mt-4 shadow-sm" href="/projects"
+           style="transition: background-color 0.3s ease;"
+           onmouseover="this.style.backgroundColor='#e2e6ea';"
+           onmouseout="this.style.backgroundColor='#ffffff';">
+            Check Out My Projects
+        </a>
     </div>
 </div>
 
@@ -26,42 +31,66 @@
 
         <!-- Card 1 -->
         <div class="col">
-            <div class="card h-100 border border-2 border-secondary">
+            <div class="card h-100 border border-2 border-secondary"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)';"
+                 onmouseout="this.style.transform='scale(1)';">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">AI Chat Demo</h5>
                     <p class="card-text">
                         Interact with my custom GPT-based chatbot to see
                         how easily you can integrate AI into .NET solutions.
                     </p>
-                    <a href="/aichat" class="btn btn-outline-primary">Try the Chat</a>
+                    <a href="/aichat" class="btn btn-outline-primary"
+                       style="transition: background-color 0.3s ease;"
+                       onmouseover="this.style.backgroundColor='#e9f5ff';"
+                       onmouseout="this.style.backgroundColor='transparent';">
+                        Try the Chat
+                    </a>
                 </div>
             </div>
         </div>
 
         <!-- Card 2 -->
         <div class="col">
-            <div class="card h-100 border border-2 border-secondary">
+            <div class="card h-100 border border-2 border-secondary"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)';"
+                 onmouseout="this.style.transform='scale(1)';">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">Cross-Platform MAUI</h5>
                     <p class="card-text">
                         Explore how I use .NET MAUI to build apps for multiple
                         platforms with a single codebase.
                     </p>
-                    <a href="/about" class="btn btn-outline-primary">Learn More</a>
+                    <a href="/about" class="btn btn-outline-primary"
+                       style="transition: background-color 0.3s ease;"
+                       onmouseover="this.style.backgroundColor='#e9f5ff';"
+                       onmouseout="this.style.backgroundColor='transparent';">
+                        Learn More
+                    </a>
                 </div>
             </div>
         </div>
 
         <!-- Card 3 -->
         <div class="col">
-            <div class="card h-100 border border-2 border-secondary">
+            <div class="card h-100 border border-2 border-secondary"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)';"
+                 onmouseout="this.style.transform='scale(1)';">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">Portfolio Highlights</h5>
                     <p class="card-text">
                         Dive into my professional background, showcasing
                         expertise in development, education, and tech innovation.
                     </p>
-                    <a href="/about" class="btn btn-outline-primary">About Me</a>
+                    <a href="/about" class="btn btn-outline-primary"
+                       style="transition: background-color 0.3s ease;"
+                       onmouseover="this.style.backgroundColor='#e9f5ff';"
+                       onmouseout="this.style.backgroundColor='transparent';">
+                        About Me
+                    </a>
                 </div>
             </div>
         </div>
