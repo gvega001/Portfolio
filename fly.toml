@@ -1,8 +1,5 @@
 app = "portfolio"
 
-[build]
-  dockerfile = "Dockerfile"
-
 [env]
   ASPNETCORE_URLS = "http://+:8080"
   DOTNET_RUNNING_IN_CONTAINER = "true"
