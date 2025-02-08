@@ -2,14 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
-# Copy the solution and restore dependencies
+# Copy the solution file and project file
 COPY ["Portfolio.sln", "./"]
-COPY ["Portfolio/Portfolio/Portfolio.Web.csproj", "Portfolio/Portfolio/"]
-RUN dotnet restore "Portfolio/Portfolio/Portfolio.Web.csproj"
+COPY ["Portfolio/Portfolio.Web.csproj", "Portfolio/"]
+
+# Restore dependencies
+RUN dotnet restore "Portfolio/Portfolio.Web.csproj"
 
 # Copy everything and build the project
 COPY . .
-WORKDIR /app/Portfolio/Portfolio
+WORKDIR /app/Portfolio
 RUN dotnet publish -c Release -o /app/publish --self-contained false
 
 # Use ASP.NET runtime for running the app
