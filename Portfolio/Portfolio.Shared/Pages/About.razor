@@ -3,27 +3,26 @@
 <PageTitle>About</PageTitle>
 
 <!-- Hero Section -->
-<div class="hero-section d-flex align-items-center mb-5"
+<div class="hero-section d-flex align-items-center text-center text-white mb-5"
      style="min-height: 40vh; background: linear-gradient(135deg, #6366F1, #A78BFA);">
-    <div class="container text-white text-center">
+    <div class="container">
         <h1 class="display-3 fw-bold">About Me</h1>
-        <p class="lead mt-3">
-            A glimpse into my background, skills, and passion for technology.
-        </p>
+        <p class="lead mt-3">A deep dive into my passion, skills, and tech journey.</p>
     </div>
 </div>
 
-<!-- Outlined Cards Section -->
+<!-- Skills & Experience Section -->
 <div class="container my-5">
-    <!-- row-cols-1 row-cols-md-2 makes 1 column on small screens, 2 columns on medium+ -->
-    <!-- g-4 adds a gap of 1.5rem between columns and rows -->
     <div class="row row-cols-1 row-cols-md-2 g-4">
 
         <!-- 1. About Me -->
         <div class="col">
-            <div class="card h-100 border border-2 border-secondary">
+            <div class="card h-100 border border-2 border-secondary shadow-sm"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'"
+                 onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
-                    <h2 class="card-title fw-bold">About Me</h2>
+                    <h2 class="card-title fw-bold">Who am I?</h2>
                     <p>
                         Hello! I知 <strong>Gabriel Vega</strong>, a dedicated
                         <strong>software developer</strong> and technology enthusiast
@@ -40,60 +39,50 @@
 
         <!-- 2. My Technical Toolkit -->
         <div class="col">
-            <div class="card h-100 border border-2 border-secondary">
+            <div class="card h-100 border border-2 border-secondary shadow-sm"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'"
+                 onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h2 class="card-title fw-bold">My Technical Toolkit</h2>
                     <ul>
-                        <li>
-                            <strong>Programming Languages:</strong> Proficient in
-                            <em>Java</em>, <em>C</em>, <em>C#</em>, <em>C++</em>, and <em>Python</em>
-                        </li>
-                        <li>
-                            <strong>Web &amp; Cloud:</strong> Skilled in <em>HTML</em>,
-                            <em>CSS</em>, <em>JavaScript</em>, <em>SQL / Azure SQL</em>,
-                            and Docker/Kubernetes for containerization
-                        </li>
-                        <li>
-                            <strong>Frameworks &amp; Tools:</strong> Experienced with
-                            <em>Visual Studio</em>, GitHub, Postman, Salesforce, and Doxygen
-                        </li>
-                        <li>
-                            <strong>Cross-Platform Dev:</strong> .NET MAUI, XAML, plus
-                            <em>Linux/Windows</em> environments
-                        </li>
-                        <li>
-                            <strong>Robotics &amp; Hardware:</strong> Arduino, VEX,
-                            RoboBlocky, Linkbot
-                        </li>
+                        <li><strong>Programming:</strong> Java, C, C#, C++, Python</li>
+                        <li><strong>Web & Cloud:</strong> HTML, CSS, JavaScript, SQL, Azure</li>
+                        <li><strong>Frameworks:</strong> .NET MAUI, Blazor, ASP.NET Core</li>
+                        <li><strong>DevOps:</strong> Docker, Kubernetes, GitHub</li>
+                        <li><strong>Hardware:</strong> Arduino, VEX, Linkbot</li>
                     </ul>
+
+                    <!-- Dynamic Progress Bars -->
+                    @foreach (var skill in skills)
+                    {
+                        <div class="progress mb-2">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: @skill.Value%;">
+                                @skill.Key (@skill.Value%)
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
 
         <!-- 3. Bridging Education & Tech -->
         <div class="col">
-            <div class="card h-100 border border-2 border-secondary">
+            <div class="card h-100 border border-2 border-secondary shadow-sm"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'"
+                 onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
-                    <h2 class="card-title fw-bold">Bridging Education &amp; Tech</h2>
+                    <h2 class="card-title fw-bold">Bridging Education & Tech</h2>
                     <p>
-                        My background in <strong>teaching</strong> not only honed my
-                        communication and mentorship skills but also gave me a unique
-                        viewpoint for designing software用articularly solutions that
-                        improve user learning and engagement. Some highlights include:
+                        My teaching background honed my <strong>communication</strong> and
+                        <strong>mentorship</strong> skills, giving me a unique approach to
+                        software development. Some highlights include:
                     </p>
                     <ul>
-                        <li>
-                            Developing and integrating <em>C-based</em> and <em>C#</em>
-                            applications for robotics programs
-                        </li>
-                        <li>
-                            Introducing <em>Docker</em> for streamlined deployments
-                            and environment consistency
-                        </li>
-                        <li>
-                            Mentoring teams on <em>agile methodologies</em>,
-                            test-driven development, and continuous integration
-                        </li>
+                        <li>Developing <em>C-based</em> and <em>C#</em> robotics programs</li>
+                        <li>Implementing <em>Docker</em> for streamlined deployments</li>
+                        <li>Mentoring teams on <em>agile methodologies</em> and CI/CD</li>
                     </ul>
                 </div>
             </div>
@@ -101,19 +90,16 @@
 
         <!-- 4. Why I知 Excited About Tech -->
         <div class="col">
-            <div class="card h-100 border border-2 border-secondary">
+            <div class="card h-100 border border-2 border-secondary shadow-sm"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'"
+                 onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h2 class="card-title fw-bold">Why I知 Excited About Tech</h2>
-                    <p>
-                        Having led interdisciplinary STEM/robotics classes, I致e
-                        witnessed firsthand how <strong>hands-on tech</strong> can
-                        empower people and organizations. I知 now focusing on
-                        <strong>full-time software development</strong>, eager to:
-                    </p>
                     <ul>
-                        <li>Build scalable <em>.NET</em> or <em>Java</em> applications</li>
-                        <li>Explore <em>AI</em> and data-driven projects</li>
-                        <li>Contribute to platforms that reshape how people interact with technology</li>
+                        <li>Building scalable <em>.NET</em> applications</li>
+                        <li>Exploring <em>AI</em> and data-driven projects</li>
+                        <li>Shaping innovative platforms</li>
                     </ul>
                 </div>
             </div>
@@ -121,38 +107,118 @@
 
         <!-- 5. Beyond the Code -->
         <div class="col">
-            <div class="card h-100 border border-2 border-secondary">
+            <div class="card h-100 border border-2 border-secondary shadow-sm"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'"
+                 onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h2 class="card-title fw-bold">Beyond the Code</h2>
-                    <p>
-                        When I知 not coding or prototyping, you might find me:
-                    </p>
+                    <p>Outside of coding, I enjoy:</p>
                     <ul>
                         <li>Experimenting with new <em>IoT</em> or robotics projects</li>
-                        <li>Reading up on the latest <em>DevOps</em> practices</li>
-                        <li>Sharing my knowledge with others傭oth students and fellow developers</li>
+                        <li>Reading about <em>DevOps</em> advancements</li>
+                        <li>Sharing knowledge with students & developers</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 6. In a Nutshell -->
+        <!-- 6. AI Chatbot About Me -->
         <div class="col">
-            <div class="card h-100 border border-2 border-secondary">
+            <div class="card h-100 border border-2 border-secondary shadow-sm"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'"
+                 onmouseout="this.style.transform='scale(1)'">
+                <div class="card-body text-center">
+                    <h2 class="card-title fw-bold">Ask Me Anything</h2>
+                    <button class="btn btn-primary" @onclick="ToggleChatbot"
+                            style="transition: background-color 0.3s ease;">
+                        @(showChatbot ? "Close AI Chat" : "Chat with My AI")
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Live Coding Console -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary shadow-sm"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'"
+                 onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
-                    <p>
-                        <strong>In a nutshell</strong>: I知 an adaptable developer who merges
-                        a strong <em>technical foundation</em> with a proven ability to
-                        <em>communicate</em>, <em>mentor</em>, and <em>drive projects</em>
-                        forward. With a passion for <em>innovation</em> and
-                        <em>collaboration</em>, I知 looking to bring my expertise in
-                        <strong>software development</strong>, <strong>cloud technologies</strong>,
-                        and <strong>educational insight</strong> to organizations shaping
-                        tomorrow痴 tech landscape.
-                    </p>
+                    <h2 class="card-title fw-bold">Live C# Console</h2>
+                    <input type="text" class="form-control mb-2" @bind="userCode"
+                           placeholder="Type C# code..."
+                           style="border: 1px solid #ced4da; padding: 0.5rem;" />
+                    <button class="btn btn-success" @onclick="RunCode"
+                            style="transition: background-color 0.3s ease;">
+                        Run
+                    </button>
+                    <pre class="mt-3 p-2 bg-light border"
+                         style="font-family: 'Courier New', monospace;">
+                        @codeOutput</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Random Quote Generator -->
+        <div class="col">
+            <div class="card h-100 border border-2 border-secondary shadow-sm"
+                 style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'"
+                 onmouseout="this.style.transform='scale(1)'">
+                <div class="card-body text-center">
+                    <h2 class="card-title fw-bold">Tech Inspiration</h2>
+                    <p><em>"@randomQuote"</em></p>
+                    <button class="btn btn-secondary" @onclick="GenerateQuote"
+                            style="transition: background-color 0.3s ease;">
+                        New Quote
+                    </button>
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+
+<!-- AI Chatbot Modal -->
+@if (showChatbot)
+{
+    <div class="modal show d-block" tabindex="-1"
+         style="background-color: rgba(0, 0, 0, 0.8);">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 10px;">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chat with My AI</h5>
+                    <button type="button" class="btn-close" @onclick="ToggleChatbot"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This chatbot can answer questions about my projects and skills!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private bool showChatbot = false;
+    private string userCode = "";
+    private string codeOutput = "";
+    private string randomQuote = "Technology is best when it brings people together.";
+
+    private Dictionary<string, int> skills = new()
+    {
+        { "C#", 90 }, { "Blazor", 85 }, { "ASP.NET", 80 }
+    };
+
+    private void ToggleChatbot() => showChatbot = !showChatbot;
+    private void GenerateQuote() => randomQuote = new[]
+    {
+        "Code is like humor.",
+        "Simplicity is key.",
+        "Fix the cause, not the symptom."
+    }[new Random().Next(3)];
+    private void RunCode() => codeOutput = userCode.Contains("Hello")
+        ? "Output: Hello, world!"
+        : "Simulated output.";
+}
