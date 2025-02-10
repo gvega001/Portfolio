@@ -1,12 +1,16 @@
 @page "/aichat"
 
 <PageTitle>AI Chat</PageTitle>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
 <!-- Hero Section -->
 <div class="hero-section d-flex align-items-center mb-5"
      style="min-height: 40vh; background: linear-gradient(135deg, #6366F1, #A78BFA);">
     <div class="container text-white text-center">
-        <h1 class="display-3 fw-bold">AI Chat</h1>
+        <h1 class="display-3 fw-bold">
+            <i class="fas fa-robot"></i> AI Chat
+        </h1>
         <p class="lead mt-3">
             Interact with my custom GPT-based chatbot—enter a prompt and see the AI respond!
         </p>
@@ -22,12 +26,17 @@
                  onmouseover="this.style.transform='scale(1.02)';"
                  onmouseout="this.style.transform='scale(1)';">
                 <div class="card-body">
-                    <h4 class="card-title fw-bold">Ask the AI</h4>
+                    <h4 class="card-title fw-bold">
+                        <i class="fas fa-paper-plane"></i> Ask the AI
+                    </h4>
                     <p class="card-text">
                         Type your question or command below, then click Send.
                     </p>
                     <div class="mb-3">
-                        <textarea class="form-control" @bind="UserPrompt" rows="3"
+                        <label for="userPrompt" class="form-label">
+                            <i class="fas fa-keyboard"></i> Your Question
+                        </label>
+                        <textarea id="userPrompt" class="form-control" @bind="UserPrompt" rows="3"
                                   placeholder="Type your question here..."
                                   style="border: 1px solid #ced4da; border-radius: 4px; padding: 0.75rem; transition: border-color 0.3s ease;"
                                   onfocus="this.style.borderColor='#6366F1';"
@@ -37,7 +46,7 @@
                             style="transition: background-color 0.3s ease;"
                             onmouseover="this.style.backgroundColor='#4a5fc3';"
                             onmouseout="this.style.backgroundColor='#0d6efd';">
-                        <i class="bi bi-chat-dots"></i> Send
+                        <i class="fas fa-paper-plane"></i> Send
                     </button>
                 </div>
             </div>
@@ -50,7 +59,9 @@
                      onmouseover="this.style.transform='scale(1.02)';"
                      onmouseout="this.style.transform='scale(1)';">
                     <div class="card-body">
-                        <h4 class="card-title fw-bold">AI says:</h4>
+                        <h4 class="card-title fw-bold">
+                            <i class="fas fa-robot"></i> AI says:
+                        </h4>
                         <p style="font-family: 'Courier New', monospace; background-color: #f8f9fa; padding: 1rem; border-radius: 4px;">
                             @AIResponse
                         </p>
