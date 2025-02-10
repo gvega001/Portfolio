@@ -1,12 +1,15 @@
 @page "/projects"
-
 <PageTitle>Projects</PageTitle>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
 <!-- Hero Section -->
 <div class="hero-section d-flex align-items-center mb-5"
      style="min-height: 40vh; background: linear-gradient(135deg, #6366F1, #A78BFA);">
     <div class="container text-white text-center">
-        <h1 class="display-3 fw-bold">Projects</h1>
+        <h1 class="display-3 fw-bold">
+            <i class="fas fa-project-diagram"></i> Projects
+        </h1>
         <p class="lead mt-3">
             Below are some of the projects I’ve worked on, showcasing skills in .NET, C,
             cross-platform development, AI, and more. Expand each section to learn more!
@@ -31,40 +34,35 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>Client-Server Communication Application</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fas fa-network-wired"></i> Client-Server Communication Application
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p>
                                 <em>Aug 2024 - Present</em><br />
-                                The project at hand is a client-server communication application
-                                designed to demonstrate fundamental networking concepts using
-                                TCP sockets. It consists of a server application and two client
-                                applications (<code>client1</code> and <code>client2</code>),
-                                all written in C.
+                                Designed to demonstrate fundamental networking concepts using TCP sockets.
                             </p>
                             <p>
-                                <strong>Project Structure:</strong><br />
+                                <strong><i class="fas fa-project-diagram"></i> Project Structure:</strong>
                                 <ul>
                                     <li>
-                                        <strong>Server Application (server.c):</strong> Listens for
-                                        incoming connections and processes data from clients.
+                                        <strong><i class="fas fa-server"></i> Server Application (server.c):</strong> Handles incoming connections and data processing.
                                     </li>
                                     <li>
-                                        <strong>Client Application 1 (client1.c):</strong> Connects
-                                        to the server, sends messages, and awaits responses.
+                                        <strong><i class="fas fa-desktop"></i> Client Application 1 (client1.c):</strong> Connects to the server, sends messages, waits for responses.
                                     </li>
                                     <li>
-                                        <strong>Client Application 2 (client2.c):</strong> Similar to
-                                        <code>client1</code>, but with variations in data exchange handling.
+                                        <strong><i class="fas fa-desktop"></i> Client Application 2 (client2.c):</strong> Similar to client1 but with different data handling.
                                     </li>
                                 </ul>
                             </p>
                             <p>
-                                <strong>Skills &amp; Concepts:</strong> Algorithms · C Programming · Network Programming · Troubleshooting and Debugging
+                                <strong><i class="fas fa-tools"></i> Skills &amp; Concepts:</strong> Algorithms, C Programming, Network Programming, Debugging
                             </p>
                             <p>
-                                <strong>Highlights:</strong> Demonstrates socket creation, binding,
-                                listening, sending, and receiving data, along with robust error
-                                handling and debugging.
+                                <strong><i class="fas fa-lightbulb"></i> Highlights:</strong> Socket creation, binding, listening, robust error handling.
                             </p>
                         </div>
                     </details>
@@ -84,29 +82,32 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>Cross-Platform Craps Game Development</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fas fa-gamepad"></i> Cross-Platform Craps Game Development
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p><em>Aug 2024 - Present</em></p>
                             <p>
-                                I spearheaded the development of a Cross-Platform Craps Game using
-                                .NET MAUI, integrating a C-based backend (DLL for Windows, SO for
-                                Linux/Android) with a modern C# front-end interface. This includes:
+                                Spearheaded the development of a Cross-Platform Craps Game using .NET MAUI, integrating a C-based backend with a modern C# front-end interface. This includes:
                             </p>
                             <ul>
-                                <li><strong>C Library Integration:</strong> P/Invoke bridging C logic &amp; C# UI</li>
-                                <li><strong>Advanced C Programming:</strong> Memory management, pointers, modular structure</li>
                                 <li>
-                                    <strong>Custom Styling with XAML:</strong> Retro-themed design using
-                                    <code>styles.xaml</code> and <code>colors.xaml</code>
+                                    <strong><i class="fas fa-code"></i> C Library Integration:</strong> P/Invoke bridging C logic &amp; C# UI.
                                 </li>
                                 <li>
-                                    <strong>Cross-Platform Compatibility:</strong> Runs on Android, iOS,
-                                    Windows, and Mac Catalyst
+                                    <strong><i class="fas fa-cogs"></i> Advanced C Programming:</strong> Memory management, pointers, modular structure.
+                                </li>
+                                <li>
+                                    <strong><i class="fas fa-palette"></i> Custom Styling with XAML:</strong> Retro-themed design using <code>styles.xaml</code> and <code>colors.xaml</code>.
+                                </li>
+                                <li>
+                                    <strong><i class="fas fa-laptop-code"></i> Cross-Platform Compatibility:</strong> Runs on Android, iOS, Windows, and Mac Catalyst.
                                 </li>
                             </ul>
                             <p>
-                                <strong>Outcome:</strong> A robust game interface highlighting cross-platform
-                                .NET MAUI development, library management, and user experience design.
+                                <strong><i class="fas fa-tools"></i> Outcome:</strong> A robust game interface highlighting cross-platform .NET MAUI development, library management, and user experience design.
                             </p>
                         </div>
                     </details>
@@ -127,35 +128,31 @@
                     </div>
                     <details>
                         <summary>
-                            <strong>Integrated .NET MAUI Application with C# and C Interoperability</strong>
+                            <strong>
+                                <i class="fas fa-sync-alt"></i> Integrated .NET MAUI Application with C# and C Interoperability
+                            </strong>
                         </summary>
                         <div style="margin-top: 1rem;">
                             <p><em>Aug 2024 - Present</em></p>
                             <p>
-                                Successfully integrated two .NET C# console apps and a C-based app into a
-                                cohesive .NET MAUI application:
+                                Successfully integrated two .NET C# console apps and a C-based app into a cohesive .NET MAUI application:
                             </p>
                             <ul>
                                 <li>
-                                    <strong>PDFDataExtractor (C#):</strong> Refactored into a .NET MAUI
-                                    class library.
+                                    <strong><i class="fas fa-file-pdf"></i> PDFDataExtractor (C#):</strong> Refactored into a .NET MAUI class library.
                                 </li>
                                 <li>
-                                    <strong>PdfPropertyAnalyzer (C#):</strong> Generates PDF reports in a
-                                    graphical UI.
+                                    <strong><i class="fas fa-chart-bar"></i> PdfPropertyAnalyzer (C#):</strong> Generates PDF reports in a graphical UI.
                                 </li>
                                 <li>
-                                    <strong>PropertyAnalyzer (C):</strong> Complex financial calculations
-                                    wrapped as a DLL using P/Invoke.
+                                    <strong><i class="fas fa-calculator"></i> PropertyAnalyzer (C):</strong> Complex financial calculations wrapped as a DLL using P/Invoke.
                                 </li>
                             </ul>
                             <p>
-                                <strong>Challenges:</strong> Language interoperability, user interface
-                                integration, performance optimization, and modular architecture.
+                                <strong><i class="fas fa-exclamation-circle"></i> Challenges:</strong> Language interoperability, user interface integration, performance optimization, and modular architecture.
                             </p>
                             <p>
-                                <strong>Outcome:</strong> Multi-platform compatibility, improved user
-                                experience, and robust financial analysis in a maintainable codebase.
+                                <strong><i class="fas fa-check-circle"></i> Outcome:</strong> Multi-platform compatibility, improved user experience, and robust financial analysis in a maintainable codebase.
                             </p>
                         </div>
                     </details>
@@ -175,18 +172,18 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>PDF Data Extractor</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fas fa-file-pdf"></i> PDF Data Extractor
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p><em>Aug 2024 - Present</em></p>
                             <p>
-                                A C# and .NET console application automating extraction of critical data
-                                from multiple PDFs into CSV format. Utilizes <strong>iTextSharp</strong>
-                                for PDF parsing, advanced regex for data accuracy, and a scalable
-                                architecture for integration with larger property analysis systems.
+                                A C# and .NET console application automating extraction of critical data from multiple PDFs into CSV format. Utilizes <strong>iTextSharp</strong> for PDF parsing, advanced regex for data accuracy, and a scalable architecture for integration with larger property analysis systems.
                             </p>
                             <p>
-                                <strong>Skills:</strong> C# · Regex · Git · iTextSharp · .NET Framework ·
-                                Data Processing
+                                <strong><i class="fas fa-tools"></i> Skills:</strong> C#, Regex, Git, iTextSharp, .NET Framework, Data Processing
                             </p>
                         </div>
                     </details>
@@ -206,18 +203,21 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>Property Analysis Report Generator</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fas fa-chart-line"></i> Property Analysis Report Generator
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p><em>Aug 2024 - Present</em></p>
                             <p>
-                                Automates real estate financial analysis by importing CSVs, calculating
-                                metrics (GRM, NOI, DSCR), and generating PDF reports with embedded charts.
-                                Uses <strong>CsvHelper</strong>, <strong>PdfSharpCore</strong>, and
-                                <strong>OxyPlot</strong>.
+                                Automates real estate financial analysis by importing CSVs, calculating metrics (GRM, NOI, DSCR), and generating PDF reports with embedded charts.
                             </p>
                             <p>
-                                <strong>Skills:</strong> C#, Entity Framework, PDF generation, data
-                                visualization, OxyPlot, software design.
+                                <strong><i class="fas fa-calculator"></i> Analysis:</strong> Financial calculations and report generation.
+                            </p>
+                            <p>
+                                <strong><i class="fas fa-tools"></i> Skills:</strong> C#, Entity Framework, PDF generation, data visualization, OxyPlot, software design.
                             </p>
                         </div>
                     </details>
@@ -237,20 +237,21 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>Property Analyzer (C Application)</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fas fa-calculator"></i> Property Analyzer (C Application)
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p><em>Aug 2024 - Present</em></p>
                             <p>
-                                A C-based application calculating financial metrics like GRM, Cap Rate, and
-                                DSCR from CSV data. Integrates with other .NET tools for a broader analysis
-                                pipeline.
+                                A C-based application calculating financial metrics like GRM, Cap Rate, and DSCR from CSV data. Integrates with other .NET tools for a broader analysis pipeline.
                             </p>
                             <p>
-                                <strong>Features:</strong> Data management with structs, scoring system,
-                                integration with external C# components.
+                                <strong><i class="fas fa-list"></i> Features:</strong> Data management with structs, scoring system, integration with external C# components.
                             </p>
                             <p>
-                                <strong>Skills:</strong> C programming, data structures, real estate analysis
+                                <strong><i class="fas fa-code"></i> Skills:</strong> C programming, data structures, real estate analysis.
                             </p>
                         </div>
                     </details>
@@ -270,18 +271,18 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>StepC - A Library for Transitioning Students from Block-Based to C</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fas fa-graduation-cap"></i> StepC - A Library for Transitioning Students from Block-Based to C
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p><em>Aug 2024 - Present</em></p>
                             <p>
-                                StepC is a C library simplifying dynamic data structures (ArrayLists,
-                                Linked Lists), providing user-friendly I/O operations, and offering
-                                game-based elements to teach kids real-world C concepts without
-                                overwhelming complexity.
+                                StepC is a C library simplifying dynamic data structures (ArrayLists, Linked Lists), providing user-friendly I/O operations, and offering game-based elements to teach kids real-world C concepts without overwhelming complexity.
                             </p>
                             <p>
-                                <strong>Impact:</strong> Makes learning C accessible for young students,
-                                bridging block-based and traditional coding.
+                                <strong><i class="fas fa-book-open"></i> Impact:</strong> Makes learning C accessible for young students, bridging block-based and traditional coding.
                             </p>
                         </div>
                     </details>
@@ -301,17 +302,18 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>Wordle (Console-Based)</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fas fa-terminal"></i> Wordle (Console-Based)
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p><em>Jul 2024 - Present</em></p>
                             <p>
-                                A console-based Wordle game with an emphasis on separation of concerns:
-                                <code>wordle_game_functions.c</code>, <code>file_functions.c</code>,
-                                <code>display_functions.c</code>. Utilizes ANSI escape codes for color output.
+                                A console-based Wordle game with an emphasis on separation of concerns: <code>wordle_game_functions.c</code>, <code>file_functions.c</code>, <code>display_functions.c</code>. Utilizes ANSI escape codes for color output.
                             </p>
                             <p>
-                                <strong>Technologies:</strong> Docker, Makefile, Doxygen docs, modular
-                                design, robust test approach.
+                                <strong><i class="fas fa-tools"></i> Technologies:</strong> Docker, Makefile, Doxygen docs, modular design, robust test approach.
                             </p>
                         </div>
                     </details>
@@ -331,16 +333,18 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>EduSpinner</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fas fa-spinner"></i> EduSpinner
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p><em>Jun 2023 - Present</em></p>
                             <p>
-                                An ASP.NET Core + Razor Pages tool for Microsoft Teams, allowing random
-                                student selection, group formation, and activity tracking.
+                                An ASP.NET Core + Razor Pages tool for Microsoft Teams, allowing random student selection, group formation, and activity tracking.
                             </p>
                             <p>
-                                <strong>Key Features:</strong> JWT auth, EF Core DB, CI/CD with GitHub Actions,
-                                front-end with Bootstrap/JS for spinner animations.
+                                <strong><i class="fas fa-key"></i> Key Features:</strong> JWT auth, EF Core DB, CI/CD with GitHub Actions, front-end with Bootstrap/JS for spinner animations.
                             </p>
                         </div>
                     </details>
@@ -360,17 +364,18 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>Hangman Game in C and Ch</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fas fa-gamepad"></i> Hangman Game in C and Ch
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p><em>Jul 2024</em></p>
                             <p>
-                                A classic Hangman console game, later adapted for the Ch language
-                                (C interpreter) to introduce students to coding. Emphasizes modular design,
-                                Docker-based environment, and Doxygen-generated documentation.
+                                A classic Hangman console game, later adapted for the Ch language (C interpreter) to introduce students to coding. Emphasizes modular design, Docker-based environment, and Doxygen-generated documentation.
                             </p>
                             <p>
-                                <strong>Skills:</strong> Docker, modular code, error handling, Makefile,
-                                code refactoring.
+                                <strong><i class="fas fa-tools"></i> Skills:</strong> Docker, modular code, error handling, Makefile, code refactoring.
                             </p>
                         </div>
                     </details>
@@ -390,16 +395,18 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>WhatsThatPhrase: A Windows Hangman Game</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fab fa-windows"></i> WhatsThatPhrase: A Windows Hangman Game
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p><em>Jul 2024</em></p>
                             <p>
-                                A Windows application in C/C++ with features like a high-score system,
-                                memory management fixes, input validation, and a user-friendly menu bar.
+                                A Windows application in C/C++ with features like a high-score system, memory management fixes, input validation, and a user-friendly menu bar.
                             </p>
                             <p>
-                                <strong>Skills:</strong> File handling, pointers &amp; memory safety,
-                                enhanced UI/UX in a Windows environment.
+                                <strong><i class="fas fa-tools"></i> Skills:</strong> File handling, pointers &amp; memory safety, enhanced UI/UX in a Windows environment.
                             </p>
                         </div>
                     </details>
@@ -419,22 +426,21 @@
                         <span class="text-muted">[Placeholder for Project Image]</span>
                     </div>
                     <details>
-                        <summary><strong>BitCalc</strong></summary>
+                        <summary>
+                            <strong>
+                                <i class="fas fa-calculator"></i> BitCalc
+                            </strong>
+                        </summary>
                         <div style="margin-top: 1rem;">
                             <p>
                                 <em>“BitCalc” – The Essential Tool for Computer Science Teachers.</em>
-                                Converts between Binary, Hex, Octal, and Decimal with real-time feedback
-                                and bitwise operations (AND, OR, XOR, NOT). Developed in .NET MAUI for
-                                Windows 11.
+                                Converts between Binary, Hex, Octal, and Decimal with real-time feedback and bitwise operations (AND, OR, XOR, NOT).
                             </p>
                             <p>
-                                <strong>Highlights:</strong> Multi-system support, interactive history
-                                management, real-time conversion, and an education-focused design for
-                                simplifying binary logic.
+                                <strong><i class="fas fa-lightbulb"></i> Highlights:</strong> Multi-system support, interactive history management, real-time conversion, and an education-focused design.
                             </p>
                             <p>
-                                <strong>Skills:</strong> .NET MAUI, XAML, Git, Agile Methodologies,
-                                cross-platform dev, numeric systems.
+                                <strong><i class="fas fa-tools"></i> Skills:</strong> .NET MAUI, XAML, Git, Agile Methodologies, cross-platform dev, numeric systems.
                             </p>
                         </div>
                     </details>
