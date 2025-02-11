@@ -61,9 +61,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazorise.Bootstrap5" Version="1.7.4" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.7.4" />
     <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+    <PackageReference Include="MudBlazor" Version="8.2.0" />
+    <PackageReference Include="Radzen.Blazor" Version="5.9.8" />
   </ItemGroup>
 
   <ItemGroup>

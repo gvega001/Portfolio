@@ -1,9 +1,20 @@
+using MudBlazor.Services;
 using Portfolio.Shared.Services;
 using Portfolio.Web.Components;
 using Portfolio.Web.Services;
+using MudBlazor; // Add this using directive
+using Blazorise;
+using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+
+builder.Services.AddRadzenComponents();
+// Register Blazorise services
+builder.Services.AddBlazorise(options =>
+{
+    options.Immediate = true;
+});
 
 string? openAiKey = configuration["OpenAIKey"];
 
@@ -37,6 +48,20 @@ builder.Services.AddSingleton<IFormFactor, FormFactor>();
 // Register the AI service
 builder.Services.AddSingleton<AIService>();
 
+builder.Services.AddMudServices(config =>
+{
+    config.SnackbarConfiguration = new SnackbarConfiguration()
+    {
+        PositionClass = Defaults.Classes.Position.BottomRight,
+        PreventDuplicates = false,
+        NewestOnTop = false,
+        ShowCloseIcon = true,
+        VisibleStateDuration = 10000,
+        HideTransitionDuration = 500,
+        ShowTransitionDuration = 500,
+    };
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -66,6 +91,5 @@ app.MapRazorComponents<App>()
     .AddAdditionalAssemblies(
         typeof(Portfolio.Shared._Imports).Assembly,
         typeof(Portfolio.Web.Client._Imports).Assembly);
-
 
 app.Run();
