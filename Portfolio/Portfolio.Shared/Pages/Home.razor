@@ -84,97 +84,101 @@
 </style>
 
 <!-- Hero Section -->
-<div class="hero-section d-flex align-items-center mb-5" style="min-height: 60vh;">
-    <div class="container text-white text-center">
-        <h1 class="display-3 fw-bold"><i class="fas fa-briefcase"></i> Welcome to My Portfolio!</h1>
-        <p class="lead mt-3">
-            Building innovative solutions tailored for
-            <strong>@FormFactor.GetFormFactor()</strong> on
-            <strong>@FormFactor.GetPlatform()</strong> platforms.
-        </p>
-        <a class="btn btn-light btn-lg mt-4 shadow-sm" href="/projects"
-           style="transition: background-color 0.3s ease;"
-           onmouseover="this.style.backgroundColor='#e2e6ea';"
-           onmouseout="this.style.backgroundColor='#ffffff';">
-            <i class="fas fa-folder-open"></i> Check Out My Projects
-        </a>
-    </div>
-</div>
+<mudblazor class="hero-section d-flex align-items-center mb-5" style="min-height: 60vh;">
+   
+        <div class="container text-white text-center">
+            <h1 class="display-3 fw-bold"><i class="fas fa-briefcase"></i> Welcome to My Portfolio!</h1>
+            <p class="lead mt-3">
+                Building innovative solutions tailored for
+                <strong>@FormFactor.GetFormFactor()</strong> on
+                <strong>@FormFactor.GetPlatform()</strong> platforms.
+            </p>
+            <a class="btn btn-light btn-lg mt-4 shadow-sm" href="/projects"
+               style="transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#e2e6ea';"
+               onmouseout="this.style.backgroundColor='#ffffff';">
+                <i class="fas fa-folder-open"></i> Check Out My Projects
+            </a>
+        </div>
+    
+</mudblazor>
 
 <!-- Feature / Cards Section -->
-<div class="container mb-5">
-    <!-- row-cols-1 row-cols-md-3 ensures a single column on small screens and three columns on medium+ -->
-    <!-- g-4 adds a gap (spacing) between cards -->
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+<mudblazor class="container mb-5">
 
-        <!-- Card 1 -->
-        <div class="col">
-            <div class="card h-100 border border-2 border-secondary"
-                 style="transition: transform 0.3s ease-in-out;"
-                 onmouseover="this.style.transform='scale(1.02)';"
-                 onmouseout="this.style.transform='scale(1)';">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold"><i class="fas fa-comments"></i> AI Chat Demo</h5>
-                    <p class="card-text">
-                        Interact with my custom GPT-based chatbot to see
-                        how easily you can integrate AI into .NET solutions.
-                    </p>
-                    <a href="/aichat" class="btn btn-outline-primary"
-                       style="transition: background-color 0.3s ease;"
-                       onmouseover="this.style.backgroundColor='#e9f5ff';"
-                       onmouseout="this.style.backgroundColor='transparent';">
-                        <i class="fas fa-robot"></i> Try the Chat
-                    </a>
+        <!-- row-cols-1 row-cols-md-3 ensures a single column on small screens and three columns on medium+ -->
+        <!-- g-4 adds a gap (spacing) between cards -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- Card 1 -->
+            <div class="col">
+                <div class="card h-100 border border-2 border-secondary"
+                     style="transition: transform 0.3s ease-in-out;"
+                     onmouseover="this.style.transform='scale(1.02)';"
+                     onmouseout="this.style.transform='scale(1)';">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold"><i class="fas fa-comments"></i> AI Chat Demo</h5>
+                        <p class="card-text">
+                            Interact with my custom GPT-based chatbot to see
+                            how easily you can integrate AI into .NET solutions.
+                        </p>
+                        <a href="/aichat" class="btn btn-outline-primary"
+                           style="transition: background-color 0.3s ease;"
+                           onmouseover="this.style.backgroundColor='#e9f5ff';"
+                           onmouseout="this.style.backgroundColor='transparent';">
+                            <i class="fas fa-robot"></i> Try the Chat
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="col">
-            <div class="card h-100 border border-2 border-secondary"
-                 style="transition: transform 0.3s ease-in-out;"
-                 onmouseover="this.style.transform='scale(1.02)';"
-                 onmouseout="this.style.transform='scale(1)';">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold"><i class="fas fa-mobile-alt"></i> Cross-Platform MAUI</h5>
-                    <p class="card-text">
-                        Explore how I use .NET MAUI to build apps for multiple
-                        platforms with a single codebase.
-                    </p>
-                    <a href="/about" class="btn btn-outline-primary"
-                       style="transition: background-color 0.3s ease;"
-                       onmouseover="this.style.backgroundColor='#e9f5ff';"
-                       onmouseout="this.style.backgroundColor='transparent';">
-                        <i class="fas fa-info-circle"></i> Learn More
-                    </a>
+            <!-- Card 2 -->
+            <div class="col">
+                <div class="card h-100 border border-2 border-secondary"
+                     style="transition: transform 0.3s ease-in-out;"
+                     onmouseover="this.style.transform='scale(1.02)';"
+                     onmouseout="this.style.transform='scale(1)';">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold"><i class="fas fa-mobile-alt"></i> Cross-Platform MAUI</h5>
+                        <p class="card-text">
+                            Explore how I use .NET MAUI to build apps for multiple
+                            platforms with a single codebase.
+                        </p>
+                        <a href="/about" class="btn btn-outline-primary"
+                           style="transition: background-color 0.3s ease;"
+                           onmouseover="this.style.backgroundColor='#e9f5ff';"
+                           onmouseout="this.style.backgroundColor='transparent';">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="col">
-            <div class="card h-100 border border-2 border-secondary"
-                 style="transition: transform 0.3s ease-in-out;"
-                 onmouseover="this.style.transform='scale(1.02)';"
-                 onmouseout="this.style.transform='scale(1)';">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold"><i class="fas fa-star"></i> Portfolio Highlights</h5>
-                    <p class="card-text">
-                        Dive into my professional background, showcasing
-                        expertise in development, education, and tech innovation.
-                    </p>
-                    <a href="/about" class="btn btn-outline-primary"
-                       style="transition: background-color 0.3s ease;"
-                       onmouseover="this.style.backgroundColor='#e9f5ff';"
-                       onmouseout="this.style.backgroundColor='transparent';">
-                        <i class="fas fa-user"></i> About Me
-                    </a>
+            <!-- Card 3 -->
+            <div class="col">
+                <div class="card h-100 border border-2 border-secondary"
+                     style="transition: transform 0.3s ease-in-out;"
+                     onmouseover="this.style.transform='scale(1.02)';"
+                     onmouseout="this.style.transform='scale(1)';">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold"><i class="fas fa-star"></i> Portfolio Highlights</h5>
+                        <p class="card-text">
+                            Dive into my professional background, showcasing
+                            expertise in development, education, and tech innovation.
+                        </p>
+                        <a href="/about" class="btn btn-outline-primary"
+                           style="transition: background-color 0.3s ease;"
+                           onmouseover="this.style.backgroundColor='#e9f5ff';"
+                           onmouseout="this.style.backgroundColor='transparent';">
+                            <i class="fas fa-user"></i> About Me
+                        </a>
+                    </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
-</div>
+</mudblazor>
 
 @code {
     private string factor => FormFactor.GetFormFactor();
