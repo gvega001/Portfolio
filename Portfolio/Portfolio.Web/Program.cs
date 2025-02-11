@@ -4,10 +4,12 @@ using Portfolio.Web.Components;
 using Portfolio.Web.Services;
 using MudBlazor; // Add this using directive
 using Blazorise;
+using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
+builder.Services.AddRadzenComponents();
 // Register Blazorise services
 builder.Services.AddBlazorise(options =>
 {
@@ -57,7 +59,6 @@ builder.Services.AddMudServices(config =>
         VisibleStateDuration = 10000,
         HideTransitionDuration = 500,
         ShowTransitionDuration = 500,
-        SnackbarVariant = Variant.Filled
     };
 });
 
