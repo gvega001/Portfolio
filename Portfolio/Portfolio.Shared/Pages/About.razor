@@ -5,9 +5,73 @@
 <!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
+<!-- Custom Styles for Enhanced Look -->
+<style>
+    /* Hero Section Enhancements */
+    .hero-section {
+        background: linear-gradient(135deg, #6366F1, #A78BFA);
+        color: #fff;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+        .hero-section h1 {
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-section p {
+            animation: fadeInUp 1s ease-out;
+        }
+    @@keyframes fadeInDown {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    /* Card Enhancements */
+    .card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+
+    /* Button Enhancements */
+    .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+</style>
+
 <!-- Hero Section -->
 <div class="hero-section d-flex align-items-center text-center text-white mb-5"
-     style="min-height: 40vh; background: linear-gradient(135deg, #6366F1, #A78BFA);">
+     style="min-height: 40vh;">
     <div class="container">
         <h1 class="display-3 fw-bold"><i class="fas fa-user"></i> About Me</h1>
         <p class="lead mt-3">A deep dive into my passion, skills, and tech journey.</p>
