@@ -3,9 +3,16 @@ using Portfolio.Shared.Services;
 using Portfolio.Web.Components;
 using Portfolio.Web.Services;
 using MudBlazor; // Add this using directive
+using Blazorise;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+
+// Register Blazorise services
+builder.Services.AddBlazorise(options =>
+{
+    options.Immediate = true;
+});
 
 string? openAiKey = configuration["OpenAIKey"];
 
