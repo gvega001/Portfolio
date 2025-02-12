@@ -1,22 +1,27 @@
-﻿@page "/weather"
-@using Portfolio.Shared.Services
-@inject WeatherService WeatherService
+﻿   @page "/weather"
+   @using Portfolio.Shared.Services
+   @inject WeatherService WeatherService
 <h3>Weather</h3>
 
-@if (double.IsNaN(CurrentTempC))
+@if (IsLoading)
 {
-    <p>Loading or failed to load temperature...</p>
+    <p>Loading temperature...</p>
 }
-else
+else if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <p class="text-danger">@ErrorMessage</p>
+}
+else if (CurrentTempC != null)
 {
     <p>Current Temp (°C): @CurrentTempC</p>
     <p>Current Temp (°F): @CurrentTempF</p>
 }
 
 @code {
-
-    private double CurrentTempC;
-    private double CurrentTempF;
+    private double? CurrentTempC;
+    private double? CurrentTempF;
+    private string ErrorMessage;
+    private bool IsLoading = true;
 
     protected override async Task OnInitializedAsync()
     {
@@ -26,16 +31,20 @@ else
             CurrentTempC = await WeatherService.GetCurrentTemperatureAsync();
 
             // Convert to Fahrenheit
-            if (!double.IsNaN(CurrentTempC))
+            if (CurrentTempC.HasValue)
             {
                 CurrentTempF = CurrentTempC * 1.8 + 32;
             }
         }
         catch (Exception ex)
         {
-            // Handle the exception (e.g., log it, show a message to the user, etc.)
-            Console.WriteLine($"An error occurred while getting the temperature: {ex.Message}");
-            CurrentTempC = double.NaN; // Indicate that the temperature could not be loaded
+            // Set the error message for the user
+            ErrorMessage = "An error occurred while getting the temperature.";
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+        finally
+        {
+            IsLoading = false;
         }
     }
-}
+   }
