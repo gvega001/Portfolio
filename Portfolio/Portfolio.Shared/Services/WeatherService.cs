@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Portfolio.Shared.Models;
 
+
 namespace Portfolio.Shared.Services
 {
     public class WeatherService
