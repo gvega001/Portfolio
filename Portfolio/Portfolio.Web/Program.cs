@@ -8,7 +8,7 @@ using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
-
+builder.Services.AddSingleton<WeatherService>();
 builder.Services.AddRadzenComponents();
 // Register Blazorise services
 builder.Services.AddBlazorise(options =>
@@ -61,7 +61,7 @@ builder.Services.AddMudServices(config =>
         ShowTransitionDuration = 500,
     };
 });
-
+builder.Services.AddSingleton<HttpClient>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
