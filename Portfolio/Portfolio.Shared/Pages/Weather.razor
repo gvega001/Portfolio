@@ -15,19 +15,27 @@ else
 
 @code {
 
-
     private double CurrentTempC;
     private double CurrentTempF;
 
     protected override async Task OnInitializedAsync()
     {
-        // Get the temperature in Celsius
-        CurrentTempC = await WeatherService.GetCurrentTemperatureAsync();
-
-        // Convert to Fahrenheit
-        if (!double.IsNaN(CurrentTempC))
+        try
         {
-            CurrentTempF = CurrentTempC * 1.8 + 32;
+            // Get the temperature in Celsius
+            CurrentTempC = await WeatherService.GetCurrentTemperatureAsync();
+
+            // Convert to Fahrenheit
+            if (!double.IsNaN(CurrentTempC))
+            {
+                CurrentTempF = CurrentTempC * 1.8 + 32;
+            }
+        }
+        catch (Exception ex)
+        {
+            // Handle the exception (e.g., log it, show a message to the user, etc.)
+            Console.WriteLine($"An error occurred while getting the temperature: {ex.Message}");
+            CurrentTempC = double.NaN; // Indicate that the temperature could not be loaded
         }
     }
 }
