@@ -7,14 +7,46 @@
 
 <p>@statusMessage</p>
 
+@if (openMeteoData != null)
+{
+    <h2>Open-Meteo Data</h2>
+    <p>Latitude: @openMeteoData.latitude</p>
+    <p>Longitude: @openMeteoData.longitude</p>
+    <p>Timezone: @openMeteoData.timezone</p>
+    <h3>Hourly Data</h3>
+    <ul>
+        @for (int i = 0; i < openMeteoData.hourly?.time?.Length; i++)
+        {
+            <li>@openMeteoData.hourly.time[i]: @openMeteoData.hourly.temperature_2m[i] @openMeteoData.hourly_units?.temperature_2m</li>
+        }
+    </ul>
+}
+
+@if (nwsData != null)
+{
+    <h2>NWS Data</h2>
+    <ul>
+        @foreach (var period in nwsData.properties?.periods)
+        {
+            <li>@period.startTime: @period.temperature°F - @period.shortForecast</li>
+        }
+    </ul>
+}
+
 @code {
     private string statusMessage = "Loading weather data...";
+    private OpenMeteoResponse? openMeteoData;
+    private NWSResponse? nwsData;
 
     protected override async Task OnInitializedAsync()
     {
         // Call our static helper methods to fetch and save API data.
         await WeatherHelper.SaveWeatherDataAsync();
         statusMessage = "Weather data files created successfully!";
+
+        // Load the data from the saved files.
+        openMeteoData = await WeatherHelper.LoadOpenMeteoDataAsync();
+        nwsData = await WeatherHelper.LoadNWSDataAsync();
     }
 
     // A static helper class that handles calling the APIs and saving the data to files.
@@ -40,8 +72,8 @@
         {
             try
             {
-                // Open-Meteo API URL with required parameters.
-                var openMeteoUrl = "https://api.open-meteo.com/v1/forecast?latitude=35&longitude=-97&hourly=temperature_2m";
+                // Open-Meteo API URL with required parameters for Eastvale, California.
+                var openMeteoUrl = "https://api.open-meteo.com/v1/forecast?latitude=33.9634&longitude=-117.5642&hourly=temperature_2m&timezone=America/Los_Angeles";
                 var openMeteoDto = await _httpClient.GetFromJsonAsync<OpenMeteoResponse>(openMeteoUrl);
                 if (openMeteoDto != null)
                 {
@@ -60,6 +92,7 @@
                 Console.WriteLine($"Error saving Open-Meteo data: {ex.Message}");
             }
         }
+
 
         public static async Task SaveNWSDataAsync()
         {
@@ -99,6 +132,26 @@
             {
                 Directory.CreateDirectory(directory);
             }
+        }
+
+        public static async Task<OpenMeteoResponse?> LoadOpenMeteoDataAsync()
+        {
+            if (File.Exists(openMeteoFilePath))
+            {
+                var jsonData = await File.ReadAllTextAsync(openMeteoFilePath);
+                return JsonSerializer.Deserialize<OpenMeteoResponse>(jsonData);
+            }
+            return null;
+        }
+
+        public static async Task<NWSResponse?> LoadNWSDataAsync()
+        {
+            if (File.Exists(nwsFilePath))
+            {
+                var jsonData = await File.ReadAllTextAsync(nwsFilePath);
+                return JsonSerializer.Deserialize<NWSResponse>(jsonData);
+            }
+            return null;
         }
     }
 
