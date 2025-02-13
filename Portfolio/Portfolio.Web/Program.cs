@@ -8,7 +8,9 @@ using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
-
+builder.Services.AddHttpClient(); // Ensure HttpClient is registered
+builder.Services.AddSingleton<WeatherService>();
+builder.Services.AddSingleton<FormFactor>();
 builder.Services.AddRadzenComponents();
 // Register Blazorise services
 builder.Services.AddBlazorise(options =>
@@ -46,7 +48,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
 
 // Register the AI service
-builder.Services.AddSingleton<AIService>();
+//builder.Services.AddSingleton<AIService>();
 
 builder.Services.AddMudServices(config =>
 {
@@ -61,7 +63,7 @@ builder.Services.AddMudServices(config =>
         ShowTransitionDuration = 500,
     };
 });
-
+builder.Services.AddSingleton<HttpClient>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
