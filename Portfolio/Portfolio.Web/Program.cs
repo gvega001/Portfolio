@@ -8,8 +8,7 @@ using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
-builder.Services.AddHttpClient(); // Ensure HttpClient is registered
-builder.Services.AddSingleton<WeatherService>();
+
 builder.Services.AddSingleton<FormFactor>();
 builder.Services.AddRadzenComponents();
 // Register Blazorise services
