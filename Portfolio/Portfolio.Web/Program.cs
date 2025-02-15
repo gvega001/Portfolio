@@ -2,16 +2,17 @@ using MudBlazor.Services;
 using Portfolio.Shared.Services;
 using Portfolio.Web.Components;
 using Portfolio.Web.Services;
-using MudBlazor; // Add this using directive
 using Blazorise;
 using Radzen;
+using MudBlazor;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
-builder.Services.AddHttpClient(); // Ensure HttpClient is registered
-builder.Services.AddSingleton<WeatherService>();
-builder.Services.AddSingleton<FormFactor>();
+
+// Configure services
+builder.Services.AddSingleton<IFormFactor, FormFactor>();
 builder.Services.AddRadzenComponents();
+
 // Register Blazorise services
 builder.Services.AddBlazorise(options =>
 {
@@ -37,18 +38,15 @@ builder.Services.AddCors(options =>
 });
 
 // Register services, including controllers for API endpoints.
-builder.Services.AddControllers();  // <-- Required for API controllers
+builder.Services.AddControllers();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
-// Add device-specific services used by the Portfolio.Shared project
-builder.Services.AddSingleton<IFormFactor, FormFactor>();
-
 // Register the AI service
-//builder.Services.AddSingleton<AIService>();
+builder.Services.AddSingleton<AIService>();
 
 builder.Services.AddMudServices(config =>
 {
@@ -64,6 +62,7 @@ builder.Services.AddMudServices(config =>
     };
 });
 builder.Services.AddSingleton<HttpClient>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -74,7 +73,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

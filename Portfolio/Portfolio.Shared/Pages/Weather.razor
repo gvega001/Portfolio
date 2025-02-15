@@ -1,42 +1,152 @@
 ﻿@page "/weather"
 @using System.Text.Json
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
 <PageTitle>Weather Banner</PageTitle>
 
-<h1>Weather Banner</h1>
+<style>
+    /* Hero Section for Weather Page - Matching About Page Colors */
+    .hero-section {
+        background: linear-gradient(135deg, #6366F1, #A78BFA);
+        color: #fff;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        min-height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
 
-<p>@statusMessage</p>
-
-@if (openMeteoData != null)
-{
-    <h2>Open-Meteo Data</h2>
-    <p>Latitude: @openMeteoData.latitude</p>
-    <p>Longitude: @openMeteoData.longitude</p>
-    <p>Timezone: @openMeteoData.timezone</p>
-    <h3>Hourly Data</h3>
-    <ul>
-        @for (int i = 0; i < openMeteoData.hourly?.time?.Length; i++)
-        {
-            <li>@openMeteoData.hourly.time[i]: @openMeteoData.hourly.temperature_2m[i] @openMeteoData.hourly_units?.temperature_2m</li>
+        .hero-section h1 {
+            animation: fadeInDown 1s ease-out;
+            font-size: 3rem;
+            font-weight: bold;
         }
-    </ul>
-}
 
-@if (nwsData != null)
-{
-    <h2>NWS Data</h2>
-    <ul>
-        @foreach (var period in nwsData.properties?.periods)
-        {
-            <li>@period.startTime: @period.temperature°F - @period.shortForecast</li>
+        .hero-section p {
+            animation: fadeInUp 1s ease-out;
+            font-size: 1.25rem;
         }
-    </ul>
-}
+
+    @@keyframes fadeInDown {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    /* Card Enhancements */
+    .card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        border-radius: 10px;
+    }
+
+        .card:hover {
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+
+    /* Button Enhancements */
+    .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+</style>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container">
+        <i class="fas fa-cloud-sun fa-3x"></i>
+        <h1>Weather Banner</h1>
+        <p>Stay updated with real-time weather data</p>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <p class="text-center">@statusMessage</p>
+
+    @if (openMeteoData != null)
+    {
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2><i class="fas fa-sun"></i> Open-Meteo Data</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Latitude:</strong> @openMeteoData.latitude</p>
+                <p><strong>Longitude:</strong> @openMeteoData.longitude</p>
+                <p><strong>Timezone:</strong> @openMeteoData.timezone</p>
+                <h3>Hourly Data</h3>
+                <ul class="list-group">
+                    @for (int i = 0; i < (showAllHours ? openMeteoData.hourly?.time?.Length : Math.Min(10, openMeteoData.hourly?.time?.Length ?? 0)); i++)
+                    {
+                        <li class="list-group-item">
+                            <i class="fas fa-clock"></i>
+                            @openMeteoData.hourly.time[i]: @openMeteoData.hourly.temperature_2m[i] @openMeteoData.hourly_units?.temperature_2m
+                        </li>
+                    }
+                </ul>
+                @if (openMeteoData.hourly?.time?.Length > 10)
+                {
+                    <button class="btn btn-primary mt-3" @onclick="ToggleShowAllHours">
+                        @(showAllHours ? "Show Less" : "See More")
+                    </button>
+                }
+            </div>
+        </div>
+    }
+
+    @if (nwsData != null)
+    {
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2><i class="fas fa-cloud-showers-heavy"></i> NWS Data</h2>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    @foreach (var period in nwsData.properties?.periods)
+                    {
+                        <li class="list-group-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            @period.startTime: @period.temperature°F - @period.shortForecast
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>
 
 @code {
     private string statusMessage = "Loading weather data...";
     private OpenMeteoResponse? openMeteoData;
     private NWSResponse? nwsData;
+    private bool showAllHours = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -93,21 +203,46 @@
             }
         }
 
-
         public static async Task SaveNWSDataAsync()
         {
             try
             {
-                // For demonstration, we use a sample NWS forecast URL.
-                var nwsUrl = "https://api.weather.gov/gridpoints/TOP/31,80/forecast";
-                // Note: The NWS API requires a User-Agent header. If needed, add it to _httpClient.
+                // 1. We'll dynamically get the forecast URL based on lat/lon from the NWS "points" endpoint.
+                double lat = 33.9634;
+                double lon = -117.5642;
+
+                // This endpoint returns information about which grid and office to use for forecasts.
+                // e.g., https://api.weather.gov/points/33.9634,-117.5642
+                var pointsUrl = $"https://api.weather.gov/points/{lat},{lon}";
+
+                // Make sure we have a User-Agent header, otherwise NWS may reject the request.
                 if (!_httpClient.DefaultRequestHeaders.UserAgent.Any())
                 {
                     _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("PortfolioWeatherApp/1.0 (contact@portfolio.com)");
                 }
-                var nwsDto = await _httpClient.GetFromJsonAsync<NWSResponse>(nwsUrl);
+
+                // 2. Call the points endpoint and parse out the "properties.forecast" URL.
+                var pointsResponseJson = await _httpClient.GetStringAsync(pointsUrl);
+
+                // For quick parsing, we can use System.Text.Json directly:
+                using var doc = JsonDocument.Parse(pointsResponseJson);
+                var root = doc.RootElement;
+                var propertiesElement = root.GetProperty("properties");
+
+                // This is the URL we want to call for the actual forecast, e.g. "https://api.weather.gov/gridpoints/SGX/42,30/forecast"
+                string forecastUrl = propertiesElement.GetProperty("forecast").GetString();
+
+                if (string.IsNullOrWhiteSpace(forecastUrl))
+                {
+                    Console.WriteLine("Unable to determine forecast URL from the NWS points API response.");
+                    return;
+                }
+
+                // 3. Now get the NWS forecast using the dynamic forecast URL.
+                var nwsDto = await _httpClient.GetFromJsonAsync<NWSResponse>(forecastUrl);
                 if (nwsDto != null)
                 {
+                    // 4. Serialize and save it as before.
                     var jsonData = JsonSerializer.Serialize(nwsDto, new JsonSerializerOptions { WriteIndented = true });
                     EnsureDirectoryExists(nwsFilePath);
                     await File.WriteAllTextAsync(nwsFilePath, jsonData);
@@ -154,7 +289,10 @@
             return null;
         }
     }
-
+    private void ToggleShowAllHours()
+    {
+        showAllHours = !showAllHours;
+    }
     // DTO classes for Open-Meteo and NWS API responses.
     public class OpenMeteoResponse
     {
