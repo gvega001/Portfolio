@@ -12,7 +12,7 @@ var configuration = builder.Configuration;
 // Configure services
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
 builder.Services.AddRadzenComponents();
-
+builder.Services.AddSingleton<AIService>();
 // Register Blazorise services
 builder.Services.AddBlazorise(options =>
 {
