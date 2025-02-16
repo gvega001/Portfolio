@@ -1,5 +1,5 @@
 @page "/resume"
-@using Portfolio.Shared.Models
+@using System.Text.Json.Serialization
 @using System.Net.Http
 @using System.Text.Json
 @inject NavigationManager Navigation
@@ -12,14 +12,348 @@
 }
 else
 {
-    <div>
-        <h4>@resume</h4>
-        <!-- Add more resume details as needed -->
+    <div class="resume-container">
+        <!-- Basics Section -->
+        <section>
+            <h2>@resume.Basics?.Name</h2>
+            <h3>@resume.Basics?.Label</h3>
+            <p>@resume.Basics?.Summary</p>
+            <p><strong>Email:</strong> @resume.Basics?.Email</p>
+            <p><strong>Phone:</strong> @resume.Basics?.Phone</p>
+            <p><strong>Website:</strong> @resume.Basics?.Website</p>
+            <div>
+                <h4>Location</h4>
+                <p>
+                    @resume.Basics?.Location?.Address,
+                    @resume.Basics?.Location?.City,
+                    @resume.Basics?.Location?.Region,
+                    @resume.Basics?.Location?.CountryCode,
+                    @resume.Basics?.Location?.PostalCode
+                </p>
+            </div>
+            <div>
+                <h4>Profiles</h4>
+                <ul>
+                    @if (resume.Basics?.Profiles != null)
+                    {
+                        foreach (var profile in resume.Basics.Profiles)
+                        {
+                            <li>
+                                <strong>@profile.Network:</strong>
+                                <a href="@profile.Url" target="_blank">@profile.Username</a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section>
+            <h2>Work Experience</h2>
+            @if (resume.Work != null && resume.Work.Any())
+            {
+                <ul>
+                    @foreach (var work in resume.Work)
+                    {
+                        <li>
+                            <h3>@work.Position at @work.Name</h3>
+                            <p>@work.Summary</p>
+                            <p>
+                                <strong>From:</strong> @work.StartDate.ToShortDateString()
+                                <span> - @(work.EndDate.HasValue ? work.EndDate.Value.ToShortDateString() : "Present")</span>
+                            </p>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No work experience listed.</p>
+            }
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2>Education</h2>
+            @if (resume.Education != null && resume.Education.Any())
+            {
+                <ul>
+                    @foreach (var edu in resume.Education)
+                    {
+                        <li>
+                            <h3>@edu.Institution</h3>
+                            <p>@edu.Area - @edu.StudyType</p>
+                            <p>
+                                <strong>From:</strong> @edu.StartDate.ToShortDateString()
+                                <span> - @(edu.EndDate.HasValue ? edu.EndDate.Value.ToShortDateString() : "Present")</span>
+                            </p>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No education details available.</p>
+            }
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2>Skills</h2>
+            @if (resume.Skills != null && resume.Skills.Any())
+            {
+                <ul>
+                    @foreach (var skill in resume.Skills)
+                    {
+                        <li>
+                            <strong>@skill.Name:</strong> @string.Join(", ", skill.Keywords)
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No skills listed.</p>
+            }
+        </section>
+
+        <!-- Projects Section -->
+        <section>
+            <h2>Projects</h2>
+            @if (resume.Projects != null && resume.Projects.Any())
+            {
+                <ul>
+                    @foreach (var project in resume.Projects)
+                    {
+                        <li>
+                            <h3>@project.Name</h3>
+                            <p>@project.Summary</p>
+                            <p><strong>Started on:</strong> @project.StartDate.ToShortDateString()</p>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No projects available.</p>
+            }
+        </section>
+
+        <!-- Certifications Section -->
+        <section>
+            <h2>Certifications</h2>
+            @if (resume.Certifications != null && resume.Certifications.Any())
+            {
+                <ul>
+                    @foreach (var cert in resume.Certifications)
+                    {
+                        <li>
+                            <strong>@cert.Name</strong> by @cert.Issuer on @cert.Date.ToShortDateString()
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No certifications listed.</p>
+            }
+        </section>
+
+        <!-- Languages Section -->
+        <section>
+            <h2>Languages</h2>
+            @if (resume.Languages != null && resume.Languages.Any())
+            {
+                <ul>
+                    @foreach (var language in resume.Languages)
+                    {
+                        <li>
+                            <strong>@language.Language_:</strong> @language.Fluency
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No language information available.</p>
+            }
+        </section>
+
+        <!-- Interests Section -->
+        <section>
+            <h2>Interests</h2>
+            @if (resume.Interests != null && resume.Interests.Any())
+            {
+                <ul>
+                    @foreach (var interest in resume.Interests)
+                    {
+                        <li>
+                            <strong>@interest.Name:</strong> @string.Join(", ", interest.Keywords)
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No interests listed.</p>
+            }
+        </section>
     </div>
 }
 
 @code {
-    private Resume? resume;
+    private ResumeModel? resume;
+
+    // Custom converter to handle DateTime? values, including non-standard values like "Present"
+    public class NullableDateTimeConverter : JsonConverter<DateTime?>
+    {
+        public override DateTime? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            if (reader.TokenType == JsonTokenType.String)
+            {
+                var str = reader.GetString();
+                if (string.IsNullOrWhiteSpace(str) || str.Equals("Present", StringComparison.OrdinalIgnoreCase))
+                {
+                    return null;
+                }
+                if (DateTime.TryParse(str, out DateTime dt))
+                {
+                    return dt;
+                }
+                throw new JsonException($"Unable to parse '{str}' as DateTime.");
+            }
+            else if (reader.TokenType == JsonTokenType.Null)
+            {
+                return null;
+            }
+            throw new JsonException($"Unexpected token parsing date. Token: {reader.TokenType}");
+        }
+
+        public override void Write(Utf8JsonWriter writer, DateTime? value, JsonSerializerOptions options)
+        {
+            if (value.HasValue)
+            {
+                writer.WriteStringValue(value.Value.ToString("yyyy-MM-dd"));
+            }
+            else
+            {
+                writer.WriteNullValue();
+            }
+        }
+    }
+
+    [Serializable]
+    public class ResumeModel
+    {
+        [JsonPropertyName("basics")]
+        public Basics? Basics { get; set; }
+        [JsonPropertyName("work")]
+        public List<Work>? Work { get; set; }
+        [JsonPropertyName("education")]
+        public List<Education> Education { get; set; }
+        [JsonPropertyName("skills")]
+        public List<Skill> Skills { get; set; }
+        [JsonPropertyName("projects")]
+        public List<Project> Projects { get; set; }
+        [JsonPropertyName("certifications")]
+        public List<Certification> Certifications { get; set; }
+        [JsonPropertyName("languages")]
+        public List<Language> Languages { get; set; }
+        [JsonPropertyName("interests")]
+        public List<Interest> Interests { get; set; }
+    }
+
+    [Serializable]
+    public class Basics
+    {
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+        [JsonPropertyName("label")]
+        public string Label { get; set; }
+        [JsonPropertyName("picture")]
+        public string Picture { get; set; }
+        [JsonPropertyName("phone")]
+        public string Phone { get; set; }
+        [JsonPropertyName("email")]
+        public string Email { get; set; }
+        [JsonPropertyName("website")]
+        public string Website { get; set; }
+        [JsonPropertyName("summary")]
+        public string Summary { get; set; }
+        [JsonPropertyName("location")]
+        public Location Location { get; set; }
+        [JsonPropertyName("profiles")]
+        public List<Profile> Profiles { get; set; }
+    }
+
+    public class Location
+    {
+        public string Address { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string CountryCode { get; set; }
+        public string Region { get; set; }
+    }
+
+    public class Profile
+    {
+        public string Network { get; set; }
+        public string Username { get; set; }
+        public string Url { get; set; }
+    }
+
+    public class Work
+    {
+        public string Name { get; set; }
+        public string Position { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public string Summary { get; set; }
+    }
+
+    public class Education
+    {
+        public string Institution { get; set; }
+        public string Area { get; set; }
+        public string StudyType { get; set; }
+        public DateTime StartDate { get; set; }
+        // Use the custom converter to handle non-date values like "Present"
+        [JsonConverter(typeof(NullableDateTimeConverter))]
+        public DateTime? EndDate { get; set; }
+    }
+
+    public class Skill
+    {
+        public string Name { get; set; }
+        public List<string> Keywords { get; set; }
+    }
+
+    public class Project
+    {
+        public string Name { get; set; }
+        public DateTime StartDate { get; set; }
+        public string Summary { get; set; }
+    }
+
+    public class Certification
+    {
+        public string Name { get; set; }
+        public DateTime Date { get; set; }
+        public string Issuer { get; set; }
+    }
+
+    public class Language
+    {
+        public string Language_ { get; set; }
+        public string Fluency { get; set; }
+    }
+
+    public class Interest
+    {
+        public string Name { get; set; }
+        public List<string> Keywords { get; set; }
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -27,15 +361,19 @@ else
         {
             var baseAddress = new Uri(Navigation.BaseUri);
             using var httpClient = new HttpClient { BaseAddress = baseAddress };
-            var json = await httpClient.GetStringAsync("resume.json");
-            resume = JsonSerializer.Deserialize<Resume>(json, new JsonSerializerOptions
+            var json = await httpClient.GetStringAsync("resume.json"); // Ensure resume.json is in wwwroot
+
+            var options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
-                });
+                };
+            // Register the custom converter globally
+            options.Converters.Add(new NullableDateTimeConverter());
+
+            resume = JsonSerializer.Deserialize<ResumeModel>(json, options);
         }
         catch (Exception ex)
         {
-            // Handle exceptions as needed
             Console.Error.WriteLine($"Error loading resume: {ex.Message}");
         }
     }

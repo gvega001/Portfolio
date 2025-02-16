@@ -25,7 +25,7 @@ namespace Portfolio.Shared.Models
         [JsonPropertyName("interests")]
         public List<Interest> Interests { get; set; }
     }
-
+    [Serializable]
     public class Basics
     {
         [JsonPropertyName("name")]
@@ -33,10 +33,12 @@ namespace Portfolio.Shared.Models
         [JsonPropertyName("label")]
         public string Label { get; set; }
         [JsonPropertyName("picture")]
-        public string Email { get; set; }
+        public string Picture { get; set; }
         [JsonPropertyName("phone")]
         public string Phone { get; set; }
         [JsonPropertyName("email")]
+        public string Email { get; set; }
+        [JsonPropertyName("website")]
         public string Website { get; set; }
         [JsonPropertyName("summary")]
         public string Summary { get; set; }
@@ -45,6 +47,7 @@ namespace Portfolio.Shared.Models
         [JsonPropertyName("profiles")]
         public List<Profile> Profiles { get; set; }
     }
+
 
     public class Location
     {
