@@ -263,7 +263,7 @@
                     {
                         foreach (var lang in resume.Languages)
                         {
-                            <p><strong>@lang.Language_:</strong> @lang.Fluency</p>
+                            <p><strong>@lang.Name:</strong> @lang.Fluency</p>
                         }
                     }
                     else
@@ -472,7 +472,8 @@
 
     public class Language
     {
-        public string Language_ { get; set; }
+        [JsonPropertyName("language")]
+        public string Name { get; set; }
         public string Fluency { get; set; }
     }
 
