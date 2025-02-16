@@ -217,6 +217,32 @@
             </div>
         </div>
 
+        <!-- Projects -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">Projects</h3>
+                    @if (resume?.Projects != null && resume.Projects.Any())
+                    {
+                        foreach (var proj in resume.Projects)
+                        {
+                            <div class="mb-3">
+                                <h5>@proj.Name</h5>
+                                <p>@proj.Summary</p>
+                                <p>
+                                    <small>Started on: @proj.StartDate.ToShortDateString()</small>
+                                </p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No projects available.</p>
+                    }
+                </div>
+            </div>
+        </div>
+
         <!-- Education -->
         <div class="col">
             <div class="card h-100 shadow-sm">
@@ -261,32 +287,6 @@
                     else
                     {
                         <p>No skills listed.</p>
-                    }
-                </div>
-            </div>
-        </div>
-
-        <!-- Projects -->
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title fw-bold">Projects</h3>
-                    @if (resume?.Projects != null && resume.Projects.Any())
-                    {
-                        foreach (var proj in resume.Projects)
-                        {
-                            <div class="mb-3">
-                                <h5>@proj.Name</h5>
-                                <p>@proj.Summary</p>
-                                <p>
-                                    <small>Started on: @proj.StartDate.ToShortDateString()</small>
-                                </p>
-                            </div>
-                        }
-                    }
-                    else
-                    {
-                        <p>No projects available.</p>
                     }
                 </div>
             </div>
