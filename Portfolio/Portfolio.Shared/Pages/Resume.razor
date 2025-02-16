@@ -30,7 +30,6 @@
         .hero-section p {
             animation: fadeInUp 1s ease-out;
         }
-
     @@keyframes fadeInDown {
         from
 
@@ -45,7 +44,6 @@
     }
 
     }
-
     @@keyframes fadeInUp {
         from
 
@@ -137,7 +135,7 @@
 </style>
 
 <!-- Hero Section -->
-<div class="hero-section d-flex align-items-center text-center mb-5" style="min-height: 40vh;">
+<div class="hero-section d-flex align-items-center text-center text-white mb-5" style="min-height: 40vh;">
     <div class="container">
         <h1 class="display-3 fw-bold"><i class="fas fa-file-alt"></i> Resume</h1>
         <p class="lead mt-3">An overview of my professional journey and skills.</p>
@@ -149,7 +147,8 @@
     <!-- Basics Section -->
     <div class="row mb-4">
         <div class="col-12">
-            <div class="card shadow-sm">
+            <div class="card h-100 border border-2 border-secondary shadow-sm" style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h2 class="card-title fw-bold">@resume?.Basics?.Name</h2>
                     <h4 class="card-subtitle mb-2 text-muted">@resume?.Basics?.Label</h4>
@@ -190,7 +189,8 @@
     <div class="row row-cols-1 row-cols-md-2 g-4">
         <!-- Work Experience -->
         <div class="col">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 border border-2 border-secondary shadow-sm" style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h3 class="card-title fw-bold">Work Experience</h3>
                     @if (resume?.Work != null && resume.Work.Any())
@@ -218,7 +218,8 @@
         </div>
         <!-- Education -->
         <div class="col">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 border border-2 border-secondary shadow-sm" style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h3 class="card-title fw-bold">Education</h3>
                     @if (resume?.Education != null && resume.Education.Any())
@@ -244,10 +245,10 @@
                 </div>
             </div>
         </div>
-
         <!-- Projects -->
         <div class="col">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 border border-2 border-secondary shadow-sm" style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h3 class="card-title fw-bold">Projects</h3>
                     @if (resume?.Projects != null && resume.Projects.Any())
@@ -270,10 +271,10 @@
                 </div>
             </div>
         </div>
-
         <!-- Skills -->
         <div class="col">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 border border-2 border-secondary shadow-sm" style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h3 class="card-title fw-bold">Skills</h3>
                     @if (resume?.Skills != null && resume.Skills.Any())
@@ -290,10 +291,10 @@
                 </div>
             </div>
         </div>
-
         <!-- Certifications -->
         <div class="col">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 border border-2 border-secondary shadow-sm" style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h3 class="card-title fw-bold">Certifications</h3>
                     @if (resume?.Certifications != null && resume.Certifications.Any())
@@ -312,10 +313,10 @@
                 </div>
             </div>
         </div>
-
         <!-- Languages -->
         <div class="col">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 border border-2 border-secondary shadow-sm" style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h3 class="card-title fw-bold">Languages</h3>
                     @if (resume?.Languages != null && resume.Languages.Any())
@@ -332,10 +333,10 @@
                 </div>
             </div>
         </div>
-
         <!-- Interests -->
         <div class="col">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 border border-2 border-secondary shadow-sm" style="transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="card-body">
                     <h3 class="card-title fw-bold">Interests</h3>
                     @if (resume?.Interests != null && resume.Interests.Any())
@@ -386,21 +387,6 @@
         </div>
     </div>
 }
-
-<!-- Custom JavaScript for Additional Effects -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Animate cards on page load
-        var cards = document.querySelectorAll(".card");
-        cards.forEach(function(card) {
-            card.style.opacity = 0;
-            setTimeout(function() {
-                card.style.transition = "opacity 0.5s ease-in-out";
-                card.style.opacity = 1;
-            }, 200);
-        });
-    });
-</script>
 
 @code {
     // Resume-related fields
