@@ -6,6 +6,7 @@ using Blazorise;
 using Radzen;
 using MudBlazor;
 
+
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 

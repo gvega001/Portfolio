@@ -1,0 +1,42 @@
+@page "/resume"
+@using Portfolio.Shared.Models
+@using System.Net.Http
+@using System.Text.Json
+@inject NavigationManager Navigation
+
+<h3>Resume</h3>
+
+@if (resume == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div>
+        <h4>@resume</h4>
+        <!-- Add more resume details as needed -->
+    </div>
+}
+
+@code {
+    private Resume? resume;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var baseAddress = new Uri(Navigation.BaseUri);
+            using var httpClient = new HttpClient { BaseAddress = baseAddress };
+            var json = await httpClient.GetStringAsync("resume.json");
+            resume = JsonSerializer.Deserialize<Resume>(json, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+        }
+        catch (Exception ex)
+        {
+            // Handle exceptions as needed
+            Console.Error.WriteLine($"Error loading resume: {ex.Message}");
+        }
+    }
+}

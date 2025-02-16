@@ -1,0 +1,217 @@
+{
+    "basics": {
+        "name": "Gabriel Vega",
+        "label": "Software Engineer | Full-Stack Developer | AI & EdTech Innovator",
+        "email": "gabriel.vega@example.com",
+        "phone": "+1-951-489-9323",
+        "website": "Coming soon",
+        "summary": "Experienced software engineer and educator specializing in full-stack development, AI integration, and educational technology. Proficient in C, C++, .NET, Blazor, Python, and AI-driven applications. Passionate about building scalable solutions, enhancing user experience, and integrating technology into education.",
+        "location": {
+            "address": "Eastvale, CA",
+            "postalCode": "92880",
+            "city": "Eastvale",
+            "countryCode": "US",
+            "region": "California"
+        },
+        "profiles": [
+            {
+                "network": "GitHub",
+                "username": "gabrielvega",
+                "url": "https://github.com/gabrielvega"
+            },
+            {
+                "network": "LinkedIn",
+                "username": "gabrielvega",
+                "url": "https://linkedin.com/in/gabrielvega"
+            },
+          {
+            "network": "Portfolio",
+            "username": "gabrielvega",
+            "url": "https://localhost:7041/"
+          }
+        ]
+    },
+    "work": [
+        {
+            "name": "Fontana Unified School District",
+            "position": "Computer Science & Software Development Teacher",
+            "startDate": "2023-08-01",
+            "summary": "Teaching computer science, software development, and AI concepts to middle and high school students. Developed a full-stack curriculum covering C, Python, .NET, and AI-driven applications."
+        },
+        {
+            "name": "Forever Casas Realty Investment Group",
+            "position": "CEO & Software Engineer",
+            "startDate": "2020-06-01",
+            "summary": "Built a proprietary real estate investment analysis tool. Integrated AI-based property evaluations and predictive market analysis into the business model."
+        },
+        {
+            "name": "Freelance Developer",
+            "position": "Full-Stack Developer & AI Consultant",
+            "startDate": "2018-01-01",
+            "summary": "Designed and developed software applications, specializing in .NET MAUI, Blazor, and AI chatbots. Built interactive learning tools and automated real estate investment calculators."
+        },
+        {
+            "name": "EdTech Startup (Contract)",
+            "position": "Software Engineer & AI Developer",
+            "startDate": "2021-01-01",
+            "endDate": "2023-06-01",
+            "summary": "Developed AI-powered tutoring systems and interactive learning applications using GPT-based models and Microsoft Semantic Kernel."
+        }
+    ],
+    "education": [
+        {
+            "institution": "UC Davis/UCR Extension",
+            "area": "Computer Science",
+            "studyType": "Certificate",
+            "startDate": "2023-01-01",
+            "endDate": "2023-12-31"
+        },
+        {
+            "institution": "Various IT & Software Engineering Courses",
+            "area": "Advanced Software Development & AI",
+            "studyType": "Professional Development",
+            "startDate": "2010-01-01",
+            "endDate": "Present"
+        }
+    ],
+    "skills": [
+        {
+            "name": "Programming Languages",
+            "keywords": [
+                "C",
+                "C++",
+                ".NET",
+                "Blazor",
+                "Python",
+                "XAML",
+                "Java",
+                "JavaScript",
+                "SQL",
+                "TypeScript"
+            ]
+        },
+        {
+            "name": "Web & Mobile Development",
+            "keywords": [
+                ".NET MAUI",
+                "Blazor Hybrid",
+                "React",
+                "Next.js",
+                "Tailwind CSS",
+                "ASP.NET Core"
+            ]
+        },
+        {
+            "name": "AI & Machine Learning",
+            "keywords": [
+                "OpenAI API",
+                "GPT4All",
+                "Microsoft Semantic Kernel",
+                "TensorFlow",
+                "LLMs",
+                "NLP"
+            ]
+        },
+        {
+            "name": "Cloud & DevOps",
+            "keywords": [
+                "GitHub Codespaces",
+                "Docker",
+                "Azure Functions",
+                "AWS Lambda",
+                "CI/CD Pipelines"
+            ]
+        },
+        {
+            "name": "Databases & Backend",
+            "keywords": [
+                "SQL Server",
+                "PostgreSQL",
+                "MongoDB",
+                "Firebase",
+                "GraphQL",
+                "REST APIs"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "EduSpinner",
+            "startDate": "2023-06-01",
+            "summary": "An AI-powered interactive educational tool integrated into Microsoft Teams, designed to enhance student engagement using gamification principles."
+        },
+        {
+            "name": "BitCalc",
+            "startDate": "2024-01-01",
+            "summary": "A .NET MAUI-based binary math learning tool for Computer Science teachers and students, supporting multiple numeral systems and bitwise operations."
+        },
+        {
+            "name": "C-Spark Programming Language",
+            "startDate": "2025-01-01",
+            "summary": "A simplified programming language designed to teach 5th-12th grade students foundational coding concepts using C."
+        },
+        {
+            "name": "AI Resume Chatbot",
+            "startDate": "2025-02-01",
+            "summary": "Integrated an AI chatbot into a .NET MAUI Blazor web app that can answer questions about my resume and projects using GPT4All and Microsoft Semantic Kernel."
+        },
+        {
+            "name": "Real Estate Investment Analyzer",
+            "startDate": "2023-07-01",
+            "summary": "A data-driven real estate investment evaluation tool that uses predictive analytics and AI-driven property assessments."
+        }
+    ],
+    "certifications": [
+        {
+            "name": "California Teaching Credential in Computer Science",
+            "date": "2025-01-01",
+            "issuer": "California Commission on Teacher Credentialing"
+        },
+        {
+            "name": "Microsoft Certified: Azure AI Fundamentals",
+            "date": "2024-06-01",
+            "issuer": "Microsoft"
+        },
+        {
+            "name": "AWS Certified Solutions Architect \u2013 Associate",
+            "date": "2024-07-01",
+            "issuer": "Amazon Web Services"
+        }
+    ],
+    "languages": [
+        {
+            "language": "English",
+            "fluency": "Native"
+        },
+        {
+            "language": "Spanish",
+            "fluency": "Fluent"
+        }
+    ],
+    "interests": [
+        {
+            "name": "Artificial Intelligence",
+            "keywords": [
+                "AI-powered education",
+                "Semantic Kernel",
+                "GPT4All integration",
+                "AI tutoring"
+            ]
+        },
+        {
+            "name": "Cloud & DevOps",
+            "keywords": [
+                "Scalable cloud applications",
+                "Serverless architectures",
+                "CI/CD automation"
+            ]
+        },
+        {
+            "name": "Open Source Contributions",
+            "keywords": [
+                "Contributing to .NET ecosystem",
+                "Developing open-source educational tools"
+            ]
+        }
+    ]
+}
