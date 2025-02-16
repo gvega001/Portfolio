@@ -14,13 +14,34 @@
 <!-- Bootstrap CSS (if not already globally loaded) -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+<!-- GSAP JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
+<!-- Lottie JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+
+<!-- Particles.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
 <!-- Custom Styles -->
 <style>
+    /* Full-Page Particles Background */
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
     /* Hero Section Enhancements */
     .hero-section {
+        position: relative;
         background: linear-gradient(135deg, #6366F1, #A78BFA);
         color: #fff;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        overflow: hidden;
     }
 
         .hero-section h1 {
@@ -30,6 +51,13 @@
         .hero-section p {
             animation: fadeInUp 1s ease-out;
         }
+
+    /* Lottie Animation Container */
+    #lottie-animation {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+    }
 
     @@keyframes fadeInDown {
         from
@@ -136,12 +164,16 @@
             }
 </style>
 
+
+
 <!-- Hero Section -->
 <div class="hero-section d-flex align-items-center text-center mb-5" style="min-height: 40vh;">
     <div class="container">
         <h1 class="display-3 fw-bold"><i class="fas fa-file-alt"></i> Resume</h1>
         <p class="lead mt-3">An overview of my professional journey and skills.</p>
+        
     </div>
+
 </div>
 
 <!-- Main Resume Content -->
@@ -399,6 +431,97 @@
                 card.style.transition = "opacity 0.5s ease-in-out";
                 card.style.opacity = 1;
             }, 200);
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        gsap.from(".hero-section h1", { duration: 1, y: -50, opacity: 0, ease: "bounce.out" });
+        gsap.from(".hero-section p", { duration: 1.5, y: 50, opacity: 0, ease: "power2.out" });
+        gsap.from("#lottie-animation", { duration: 1, scale: 0.8, opacity: 0, ease: "power2.out" });
+        gsap.from(".card", { duration: 1, scale: 0.8, opacity: 0, stagger: 0.2, ease: "power2.out" });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets3.lottiefiles.com/packages/lf20_totrpclr.json' // Example animation JSON
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    }
+                },
+                "modes": {
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
         });
     });
 </script>
