@@ -260,14 +260,14 @@
       "issuer": "California Commission on Teacher Credentialing"
     },
     {
-      "name": "Microsoft Certified: Azure AI Fundamentals",
+      "name": "Microsoft: Azure AI Fundamentals",
       "date": "2024-06-01",
-      "issuer": "Microsoft"
+      "issuer": "LinkedIn Learning"
     },
     {
-      "name": "AWS Certified Solutions Architect \u2013 Associate",
+      "name": "AWS Solutions Architect \u2013 Associate",
       "date": "2024-07-01",
-      "issuer": "Amazon Web Services"
+      "issuer": "LinkedIn Learning"
     }
   ],
   "languages": [

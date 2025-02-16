@@ -3,6 +3,7 @@
 @using Portfolio.Shared.Models
 @using System.Net.Http
 @using System.Text.Json
+@using Microsoft.AspNetCore.Components.Web
 @inject NavigationManager Navigation
 
 <PageTitle>Resume</PageTitle>
@@ -29,6 +30,7 @@
         .hero-section p {
             animation: fadeInUp 1s ease-out;
         }
+
     @@keyframes fadeInDown {
         from
 
@@ -43,6 +45,7 @@
     }
 
     }
+
     @@keyframes fadeInUp {
         from
 
@@ -75,6 +78,62 @@
         .btn:hover {
             transform: translateY(-2px);
         }
+
+    /* Chatbot Styles */
+    .chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        max-height: 400px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        z-index: 1050;
+    }
+
+    .chatbot-header {
+        background-color: #6366F1;
+        color: #fff;
+        padding: 10px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .chatbot-messages {
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto;
+    }
+
+    .chatbot-input {
+        display: flex;
+        border-top: 1px solid #ddd;
+    }
+
+        .chatbot-input input {
+            flex: 1;
+            border: none;
+            padding: 10px;
+        }
+
+        .chatbot-input button {
+            background-color: #6366F1;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+            .chatbot-input button:hover {
+                background-color: #5753c9;
+            }
 </style>
 
 <!-- Hero Section -->
@@ -297,6 +356,37 @@
     </div>
 </div>
 
+<!-- Chatbot Toggle Button -->
+<div class="container my-5">
+    <button class="btn btn-primary" @onclick="ToggleChatbot">
+        <i class="fas fa-comments"></i> Chat with Resume
+    </button>
+</div>
+
+<!-- Chatbot Container -->
+@if (showChatbot)
+{
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <span>Chatbot</span>
+            <button class="btn btn-sm btn-light" @onclick="ToggleChatbot">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages">
+            @foreach (var message in messages)
+            {
+                <div class="mb-2">
+                    <strong>@message.Sender:</strong> @message.Text
+                </div>
+            }
+        </div>
+        <div class="chatbot-input">
+            <input @bind="userMessage" @bind:event="oninput" @onkeypress="HandleKeyPress" placeholder="Ask a question..." />
+            <button @onclick="SendMessage">Send</button>
+        </div>
+    </div>
+}
 
 <!-- Custom JavaScript for Additional Effects -->
 <script>
@@ -314,11 +404,16 @@
 </script>
 
 @code {
+    // Resume-related fields
     private ResumeModel? resume;
     private bool showChatbot = false;
     private string userCode = "";
     private string codeOutput = "";
     private string randomQuote = "Technology is best when it brings people together.";
+
+    // Chatbot-related fields
+    private string userMessage = string.Empty;
+    private List<ChatMessage> messages = new List<ChatMessage>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -371,15 +466,269 @@
                 writer.WriteNullValue();
         }
     }
-        private void ToggleChatbot() => showChatbot = !showChatbot;
-        private void GenerateQuote() => randomQuote = new[]
+
+    private void ToggleChatbot() => showChatbot = !showChatbot;
+
+    private void GenerateQuote() => randomQuote = new[]
+    {
+        "Code is like humor. When you have to explain it, it’s bad.",
+        "Fix the cause, not the symptom.",
+        "Optimism is an occupational hazard of programming."
+    }[new Random().Next(3)];
+
+    private void RunCode() => codeOutput = userCode.Contains("Hello")
+        ? "Output: Hello, world!"
+        : "Simulated output.";
+
+    // Chatbot Methods
+    private void SendMessage()
+    {
+        if (!string.IsNullOrWhiteSpace(userMessage))
         {
-            "Code is like humor. When you have to explain it, it’s bad.",
-            "Fix the cause, not the symptom.",
-            "Optimism is an occupational hazard of programming."
-        }[new Random().Next(3)];
-        private void RunCode() => codeOutput = userCode.Contains("Hello")
-            ? "Output: Hello, world!"
-            : "Simulated output.";
+            messages.Add(new ChatMessage { Sender = "User", Text = userMessage });
+            GenerateResponse(userMessage);
+            userMessage = string.Empty;
         }
+    }
+
+    private void HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            SendMessage();
+        }
+    }
+
+    private void GenerateResponse(string question)
+    {
+        string response = "I'm sorry, I don't understand the question.";
+
+        // Work Experience
+        if (question.Contains("work experience", StringComparison.OrdinalIgnoreCase) ||
+            question.Contains("job", StringComparison.OrdinalIgnoreCase))
+        {
+            if (resume?.Work != null && resume.Work.Any())
+            {
+                response = "Here is my work experience:\n";
+                foreach (var work in resume.Work)
+                {
+                    response += $"{work.Position} at {work.Name} " +
+                                $"({work.StartDate.ToShortDateString()} - " +
+                                $"{(work.EndDate.HasValue ? work.EndDate.Value.ToShortDateString() : "Present")})\n";
+                }
+            }
+            else
+            {
+                response = "No work experience available.";
+            }
+        }
+        // Projects
+        else if (question.Contains("projects", StringComparison.OrdinalIgnoreCase))
+        {
+            if (resume?.Projects != null && resume.Projects.Any())
+            {
+                response = "Here are some of my projects:\n";
+                foreach (var proj in resume.Projects)
+                {
+                    response += $"{proj.Name}: {proj.Summary} " +
+                                $"(Started on {proj.StartDate.ToShortDateString()})\n";
+                }
+            }
+            else
+            {
+                response = "No projects available.";
+            }
+        }
+        // Education
+        else if (question.Contains("education", StringComparison.OrdinalIgnoreCase))
+        {
+            if (resume?.Education != null && resume.Education.Any())
+            {
+                response = "Here is my educational background:\n";
+                foreach (var edu in resume.Education)
+                {
+                    response += $"{edu.Institution} - {edu.Area} ({edu.StudyType}), " +
+                                $"from {edu.StartDate.ToShortDateString()} to " +
+                                $"{(edu.EndDate.HasValue ? edu.EndDate.Value.ToShortDateString() : "Present")}\n";
+                }
+            }
+            else
+            {
+                response = "No education details available.";
+            }
+        }
+        // Specific Skill Conditions
+        else if (question.Contains("programming languages", StringComparison.OrdinalIgnoreCase))
+        {
+            var skill = resume?.Skills?.FirstOrDefault(s => s.Name.Contains("Programming Languages", StringComparison.OrdinalIgnoreCase));
+            if (skill != null)
+            {
+                response = "Programming Languages: " + string.Join(", ", skill.Keywords);
+            }
+            else
+            {
+                response = "No programming languages listed.";
+            }
+        }
+        else if (question.Contains("web", StringComparison.OrdinalIgnoreCase) ||
+                 question.Contains("mobile", StringComparison.OrdinalIgnoreCase))
+        {
+            var skill = resume?.Skills?.FirstOrDefault(s => s.Name.Contains("Web", StringComparison.OrdinalIgnoreCase) ||
+                                                            s.Name.Contains("Mobile", StringComparison.OrdinalIgnoreCase));
+            if (skill != null)
+            {
+                response = "Web & Mobile Development: " + string.Join(", ", skill.Keywords);
+            }
+            else
+            {
+                response = "No web or mobile development skills listed.";
+            }
+        }
+        else if (question.Contains("ai", StringComparison.OrdinalIgnoreCase) ||
+                 question.Contains("machine learning", StringComparison.OrdinalIgnoreCase))
+        {
+            var skill = resume?.Skills?.FirstOrDefault(s => s.Name.Contains("AI", StringComparison.OrdinalIgnoreCase) ||
+                                                            s.Name.Contains("Machine Learning", StringComparison.OrdinalIgnoreCase));
+            if (skill != null)
+            {
+                response = "AI & Machine Learning: " + string.Join(", ", skill.Keywords);
+            }
+            else
+            {
+                response = "No AI or machine learning skills listed.";
+            }
+        }
+        else if (question.Contains("cloud", StringComparison.OrdinalIgnoreCase) ||
+                 question.Contains("devops", StringComparison.OrdinalIgnoreCase))
+        {
+            var skill = resume?.Skills?.FirstOrDefault(s => s.Name.Contains("Cloud", StringComparison.OrdinalIgnoreCase) ||
+                                                            s.Name.Contains("DevOps", StringComparison.OrdinalIgnoreCase));
+            if (skill != null)
+            {
+                response = "Cloud & DevOps: " + string.Join(", ", skill.Keywords);
+            }
+            else
+            {
+                response = "No cloud or DevOps skills listed.";
+            }
+        }
+        else if (question.Contains("databases", StringComparison.OrdinalIgnoreCase) ||
+                 question.Contains("backend", StringComparison.OrdinalIgnoreCase))
+        {
+            var skill = resume?.Skills?.FirstOrDefault(s => s.Name.Contains("Databases", StringComparison.OrdinalIgnoreCase) ||
+                                                            s.Name.Contains("Backend", StringComparison.OrdinalIgnoreCase));
+            if (skill != null)
+            {
+                response = "Databases & Backend: " + string.Join(", ", skill.Keywords);
+            }
+            else
+            {
+                response = "No databases or backend skills listed.";
+            }
+        }
+        else if (question.Contains("tools", StringComparison.OrdinalIgnoreCase) ||
+                 question.Contains("technologies", StringComparison.OrdinalIgnoreCase))
+        {
+            var skill = resume?.Skills?.FirstOrDefault(s => s.Name.Contains("Other Tools", StringComparison.OrdinalIgnoreCase));
+            if (skill != null)
+            {
+                response = "Other Tools & Technologies: " + string.Join(", ", skill.Keywords);
+            }
+            else
+            {
+                response = "No additional tools or technologies listed.";
+            }
+        }
+        // General Skills if no specific category is mentioned
+        else if (question.Contains("skills", StringComparison.OrdinalIgnoreCase))
+        {
+            if (resume?.Skills != null && resume.Skills.Any())
+            {
+                response = "My skills include:\n";
+                foreach (var skill in resume.Skills)
+                {
+                    response += $"{skill.Name}: {string.Join(", ", skill.Keywords)}\n";
+                }
+            }
+            else
+            {
+                response = "No skills listed.";
+            }
+        }
+        // Certifications
+        else if (question.Contains("certifications", StringComparison.OrdinalIgnoreCase))
+        {
+            if (resume?.Certifications != null && resume.Certifications.Any())
+            {
+                response = "I have earned the following certifications:\n";
+                foreach (var cert in resume.Certifications)
+                {
+                    response += $"{cert.Name} by {cert.Issuer} on {cert.Date.ToShortDateString()}\n";
+                }
+            }
+            else
+            {
+                response = "No certifications listed.";
+            }
+        }
+        // Languages
+        else if (question.Contains("languages", StringComparison.OrdinalIgnoreCase))
+        {
+            if (resume?.Languages != null && resume.Languages.Any())
+            {
+                response = "I am fluent in:\n";
+                foreach (var lang in resume.Languages)
+                {
+                    response += $"{lang.Name}: {lang.Fluency}\n";
+                }
+            }
+            else
+            {
+                response = "No language information available.";
+            }
+        }
+        // Interests
+        else if (question.Contains("interests", StringComparison.OrdinalIgnoreCase))
+        {
+            if (resume?.Interests != null && resume.Interests.Any())
+            {
+                response = "My interests include:\n";
+                foreach (var interest in resume.Interests)
+                {
+                    response += $"{interest.Name}: {string.Join(", ", interest.Keywords)}\n";
+                }
+            }
+            else
+            {
+                response = "No interests listed.";
+            }
+        }
+        // Basic Profile Information
+        else if (question.Contains("profile", StringComparison.OrdinalIgnoreCase) ||
+                 question.Contains("about you", StringComparison.OrdinalIgnoreCase) ||
+                 question.Contains("basic", StringComparison.OrdinalIgnoreCase))
+        {
+            if (resume?.Basics != null)
+            {
+                response = $"Name: {resume.Basics.Name}\n" +
+                           $"Title: {resume.Basics.Label}\n" +
+                           $"Email: {resume.Basics.Email}\n" +
+                           $"Phone: {resume.Basics.Phone}\n" +
+                           $"Website: {resume.Basics.Website}\n" +
+                           $"Summary: {resume.Basics.Summary}";
+            }
+            else
+            {
+                response = "Basic profile information is not available.";
+            }
+        }
+
+        messages.Add(new ChatMessage { Sender = "Chatbot", Text = response });
+    }
+
+    public class ChatMessage
+    {
+        public string Sender { get; set; } = string.Empty;
+        public string Text { get; set; } = string.Empty;
+    }
 }
