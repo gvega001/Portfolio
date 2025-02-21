@@ -1,0 +1,309 @@
+{
+  "basics": {
+    "name": "Gabriel Vega",
+    "label": "Software Engineer | Full-Stack Developer | AI & EdTech Innovator",
+    "email": "gabriel.vega@example.com",
+    "phone": "+1-951-489-9323",
+    "website": "Coming soon",
+    "summary": "Experienced software engineer and educator specializing in full-stack development, AI integration, and educational technology. Proficient in C, C++, .NET, Blazor, Python, and AI-driven applications. Passionate about building scalable solutions, enhancing user experience, and integrating technology into education.",
+    "location": {
+      "address": "Eastvale, CA",
+      "postalCode": "92880",
+      "city": "Eastvale",
+      "countryCode": "US",
+      "region": "California"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "gabrielvega",
+        "url": "https://github.com/gvega001"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "gabrielvega",
+        "url": "https://www.linkedin.com/in/mrrealestate0101/"
+      },
+      {
+        "network": "Portfolio",
+        "username": "gabrielvega",
+        "url": "https://localhost:7041/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Fontana Unified School District",
+      "position": "Computer Science & Software Development Teacher",
+      "startDate": "2023-08-01",
+      "summary": "Teaching computer science, software development, and AI concepts to middle and high school students. Developed a full-stack curriculum covering C, Python, .NET, and AI-driven applications. Integrated robotics (RoboBlocky, Linkbot) and led an after-school Unity game club to foster student interest in STEM."
+    },
+    {
+      "name": "Forever Casas Realty Investment Group",
+      "position": "CEO & Software Engineer",
+      "startDate": "2020-06-01",
+      "summary": "Built a proprietary real estate investment analysis tool. Integrated AI-based property evaluations and predictive market analysis into the business model."
+    },
+    {
+      "name": "Freelance Developer",
+      "position": "Full-Stack Developer & AI Consultant",
+      "startDate": "2018-01-01",
+      "summary": "Designed and developed software applications, specializing in .NET MAUI, Blazor, and AI chatbots. Built interactive learning tools and automated real estate investment calculators."
+    },
+    {
+      "name": "Coachella Valley Unified School District",
+      "position": "Teacher (Robotics & Math)",
+      "startDate": "2019-08-01",
+      "endDate": "2020-06-01",
+      "summary": "Directed a Middle-High School Robotics program, focusing on computer assembly and programming. Taught 7th-grade Math and ELD, integrating technology to improve student performance. Coached after-school soccer and VEX robotics."
+    },
+    {
+      "name": "Rippon USD (RUSD)",
+      "position": "Math Teacher",
+      "startDate": "2017-08-01",
+      "endDate": "2018-06-01",
+      "summary": "Taught Math Integration and A.P. Chemistry while incorporating programming concepts. Advised the Arduino Robotics Club, mentoring students in robotics projects."
+    },
+    {
+      "name": "First Light Energy",
+      "position": "Software Developer",
+      "startDate": "2016-01-01",
+      "endDate": "2017-12-31",
+      "summary": "Contributed to Spring-based web application development (front-end and back-end). Supported Salesforce CRM integration and provided IT support to troubleshoot and maintain internal systems."
+    },
+    {
+      "name": "Corona Norco Unified School District",
+      "position": "Information Technology Specialist",
+      "startDate": "2014-01-01",
+      "endDate": "2016-12-31",
+      "summary": "Resolved over 100 IT work orders, delivered training sessions on educational technologies, and developed custom district webpages for improved communication."
+    },
+    {
+      "name": "Moreno Valley Unified School District",
+      "position": "Middle-High School Educator",
+      "startDate": "2008-01-01",
+      "endDate": "2014-12-31",
+      "summary": "Taught a range of subjects including introductory math and computer science, fostering technology-based learning approaches. Also supported extracurricular STEM activities."
+    },
+    {
+      "name": "Riverside Community College - Moreno Valley College",
+      "position": "Student Tutor",
+      "startDate": "2002-01-01",
+      "endDate": "2005-06-01",
+      "summary": "Tutored college students in C++, assisting with programming concepts, debugging, and foundational problem-solving skills."
+    }
+  ],
+  "education": [
+    {
+      "institution": "UC Davis/UCR Extension",
+      "area": "Computer Science",
+      "studyType": "Certificate",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "institution": "Various IT & Software Engineering Courses",
+      "area": "Advanced Software Development & AI",
+      "studyType": "Professional Development",
+      "startDate": "2010-01-01",
+      "endDate": "Present"
+    },
+    {
+      "institution": "UCR University Extension Professional Studies",
+      "area": "Teaching Computer Science",
+      "studyType": "Certificate",
+      "startDate": "2024-01-01",
+      "endDate": "2024-12-31"
+    },
+    {
+      "institution": "UC San Diego Extended Studies",
+      "area": "C/C++ Programming",
+      "studyType": "Professional Certificate",
+      "startDate": "2021-01-01",
+      "endDate": "2021-12-31"
+    },
+    {
+      "institution": "National University",
+      "area": "M.S. in Computer Science (Software Engineering)",
+      "studyType": "Master's Degree",
+      "startDate": "2016-01-01",
+      "endDate": "2018-12-31"
+    },
+    {
+      "institution": "Colorado Technical University",
+      "area": "Information Technology (Computer Programming)",
+      "studyType": "Undergraduate Degree",
+      "startDate": "2013-01-01",
+      "endDate": "2015-12-31"
+    },
+    {
+      "institution": "University of California, Riverside",
+      "area": "B.A. History (Mexico)",
+      "studyType": "Undergraduate Degree",
+      "startDate": "2005-01-01",
+      "endDate": "2008-12-31"
+    },
+    {
+      "institution": "Riverside Community College - Moreno Valley College",
+      "area": "Computer Science - History",
+      "studyType": "Undergraduate Coursework",
+      "startDate": "2002-01-01",
+      "endDate": "2005-06-01"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Programming Languages",
+      "keywords": [
+        "C",
+        "C++",
+        ".NET",
+        "Blazor",
+        "Python",
+        "XAML",
+        "Java",
+        "JavaScript",
+        "SQL",
+        "TypeScript",
+        "C#"
+      ]
+    },
+    {
+      "name": "Web & Mobile Development",
+      "keywords": [
+        ".NET MAUI",
+        "Blazor Hybrid",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "ASP.NET Core"
+      ]
+    },
+    {
+      "name": "AI & Machine Learning",
+      "keywords": [
+        "OpenAI API",
+        "GPT4All",
+        "Microsoft Semantic Kernel",
+        "TensorFlow",
+        "LLMs",
+        "NLP"
+      ]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "keywords": [
+        "GitHub Codespaces",
+        "Docker",
+        "Azure Functions",
+        "AWS Lambda",
+        "CI/CD Pipelines"
+      ]
+    },
+    {
+      "name": "Databases & Backend",
+      "keywords": [
+        "SQL Server",
+        "PostgreSQL",
+        "MongoDB",
+        "Firebase",
+        "GraphQL",
+        "REST APIs"
+      ]
+    },
+ {
+      "name": "Other Tools & Technologies",
+      "keywords": [
+        "Kubernetes",
+        "Doxygen",
+        "Salesforce",
+        "Postman",
+        "Windows",
+        "Linux",
+        "Unix",
+        "Agile Methodologies",
+        "Test-Driven Development"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "EduSpinner",
+      "startDate": "2023-06-01",
+      "summary": "An AI-powered interactive educational tool integrated into Microsoft Teams, designed to enhance student engagement using gamification principles."
+    },
+    {
+      "name": "BitCalc",
+      "startDate": "2024-01-01",
+      "summary": "A .NET MAUI-based binary math learning tool for Computer Science teachers and students, supporting multiple numeral systems and bitwise operations."
+    },
+    {
+      "name": "C-Spark Programming Language",
+      "startDate": "2025-01-01",
+      "summary": "A simplified programming language designed to teach 5th-12th grade students foundational coding concepts using C."
+    },
+    {
+      "name": "AI Resume Chatbot",
+      "startDate": "2025-02-01",
+      "summary": "Integrated an AI chatbot into a .NET MAUI Blazor web app that can answer questions about my resume and projects using GPT4All and Microsoft Semantic Kernel."
+    },
+    {
+      "name": "Real Estate Investment Analyzer",
+      "startDate": "2023-07-01",
+      "summary": "A data-driven real estate investment evaluation tool that uses predictive analytics and AI-driven property assessments."
+    }
+  ],
+  "certifications": [
+    {
+      "name": "California Teaching Credential in Computer Science",
+      "date": "2025-01-01",
+      "issuer": "California Commission on Teacher Credentialing"
+    },
+    {
+      "name": "Microsoft Certified: Azure AI Fundamentals",
+      "date": "2024-06-01",
+      "issuer": "Microsoft"
+    },
+    {
+      "name": "AWS Certified Solutions Architect \u2013 Associate",
+      "date": "2024-07-01",
+      "issuer": "Amazon Web Services"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Fluent"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Artificial Intelligence",
+      "keywords": [
+        "AI-powered education",
+        "Semantic Kernel",
+        "GPT4All integration",
+        "AI tutoring"
+      ]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "keywords": [
+        "Scalable cloud applications",
+        "Serverless architectures",
+        "CI/CD automation"
+      ]
+    },
+    {
+      "name": "Open Source Contributions",
+      "keywords": [
+        "Contributing to .NET ecosystem",
+        "Developing open-source educational tools"
+      ]
+    }
+  ]
+}
