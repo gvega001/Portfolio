@@ -2,9 +2,9 @@
 Solution Name: Portfolio
 Projects:
 Portfolio – Main .NET MAUI project (likely containing MauiProgram.cs).
-Portfolio.Shared – Shared library for common models, services, and business logic.
-Portfolio.Web – ASP.NET Core server or Blazor Server host (optional).
-Portfolio.Web.Client – Blazor WebAssembly client or Razor Class Library.
+Portfolio.Shared 
+Portfolio.Web 
+Portfolio.Web.Client
 Important:
 Copilot, assume you have read and write access to all files within these four projects. Always consider the entire solution—including cross-project references—when generating or refactoring code. If you modify an interface in Portfolio.Shared, ensure any implementations in Portfolio, Portfolio.Web, or Portfolio.Web.Client are also updated accordingly.
 

@@ -12,6 +12,7 @@ var configuration = builder.Configuration;
 
 // Configure services
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
+builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddRadzenComponents();
 builder.Services.AddSingleton<AIService>();
 // Register Blazorise services
